@@ -4,8 +4,12 @@ import "../stylesheets/layouts/SearchButton.scss";
 
 const SearchButton = () => {
   return (
-    <div className="SearchButton__container">
-      <button className="SearchButton__button">search</button>
+    <div className="SearchButton">
+      <div className="SearchButton__container">
+        <button className="SearchButton__button">
+          <strong>search </strong>
+        </button>
+      </div>
     </div>
   );
 };
