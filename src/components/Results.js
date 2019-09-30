@@ -1,11 +1,16 @@
 import React from "react";
+import ResultsCard from "./ResultsCard";
+import Return from "./Return";
+import ResultsMessage from "./ResultsMessage";
 
 const Results = () => {
   return (
-    <div className="header">
-      <p>RESULTS</p>
-      <p>RESUSUSUSUSUSUSUUSU</p>
-    </div>
+    <React.Fragment>
+      <div>Results</div>
+      <ResultsCard />
+      <Return />
+      <ResultsMessage />
+    </React.Fragment>
   );
 };
 
