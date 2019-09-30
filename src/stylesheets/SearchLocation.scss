@@ -1,0 +1,33 @@
+@import "./core/variables.scss";
+
+.searchlocation{
+  
+    &__title{
+        font-family: $font;
+        font-size: 14px;
+        line-height: 1.43px;
+        letter-spacing: 0.25px;
+        color:$cobalt-bue ;
+    }
+    &__list{
+        list-style: none;
+        width: 400px;
+        height: 62px;
+     
+    }
+    &__city{
+    
+        font-family: $font;
+        font-size: 16px;
+        line-height: 1.5px;
+        letter-spacing: 0.15px;
+       color: rgba(0, 0, 0, 0.87)
+
+    }
+    &__airport{
+        font-family: $font;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+
+    }
+}
