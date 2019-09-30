@@ -1,8 +1,9 @@
 import React from "react";
+import SearchButton from "./SearchButton";
 import "../stylesheets/layouts/App.scss";
 
 function App() {
-  return <div className="App">Remeet SPA</div>;
+  return <SearchButton />;
 }
 
 export default App;
