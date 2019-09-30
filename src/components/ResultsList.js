@@ -6,7 +6,7 @@ const ResultsList = () => {
     <li className="results__item">
       <div>
         <div className="results__item__city">
-          <div>
+          <div className="results__item__city__title">
             <h3>London</h3>
             <small>Gatwick Airport</small>
           </div>

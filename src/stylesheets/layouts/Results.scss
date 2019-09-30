@@ -18,6 +18,12 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      &__title {
+        padding: 16px;
+      }
+    }
+    &__totalprice {
+      padding: 13px 22px 16px 0;
     }
     &__partial {
       display: flex;
