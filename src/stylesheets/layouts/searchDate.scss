@@ -1,0 +1,47 @@
+@import '../core/variables.scss';
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+
+    &:hover{
+        display: none;
+    }
+}
+input[type="date"]::before {
+	color: #999999;
+	content: attr(placeholder);
+}
+input[type="date"] {
+	color: #ffffff;
+}
+input[type="date"]:focus,
+input[type="date"]:valid {
+	color: #666666;
+}
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+	content: "" !important;
+}
+
+.search{
+    &__date {
+        &--title{
+            color: $searchTitle;
+            margin: 5px;
+        }
+        &--wrapper{
+            margin: 5px;
+            margin-top: 14px;
+            padding: 5px;
+            border: solid 1px rgba(0, 0, 0, 0.32);
+        }
+        &--iclock{
+            color: rgba(0, 0, 0, 0.32);
+        }
+        &--item {
+            // color: red;
+            // background-color: aqua;
+            border: none;
+            
+        }
+    }
+}
