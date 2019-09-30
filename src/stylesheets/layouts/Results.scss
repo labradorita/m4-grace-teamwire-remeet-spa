@@ -1,0 +1,16 @@
+@import "../core/variables";
+
+.results {
+  &__button {
+    background-color: $cobalt-blue;
+    font-family: $font;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    line-height: 1.14;
+    border-radius: 5px;
+  }
+}

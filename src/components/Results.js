@@ -1,12 +1,15 @@
 import React from "react";
 import ResultsList from "./ResultsList";
+import ResultsButton from "./ResultsButton";
+import "../stylesheets/layouts/Results.scss";
 
 const Results = () => {
   return (
-    <div className="header">
-      <p>RESULTS</p>
-      <ResultsList />
-      <p>RESUSUSUSUSUSUSUUSU</p>
+    <div className="results__list__container">
+      <ul className="results__list">
+        <ResultsList />
+      </ul>
+      <ResultsButton />
     </div>
   );
 };

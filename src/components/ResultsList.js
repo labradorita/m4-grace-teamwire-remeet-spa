@@ -2,10 +2,10 @@ import React from "react";
 
 const ResultsList = () => {
   return (
-    <div className="header">
+    <li className="results__item">
       <p>RESULTS LIST</p>
       <p>LISISIISSIISISISISISISI</p>
-    </div>
+    </li>
   );
 };
 
