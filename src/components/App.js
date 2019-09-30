@@ -17,9 +17,17 @@ class App extends React.Component {
 
   handleDateIn(ev) {
     console.log(ev.target.value)
+    const dateIn = ev.target.value
+    this.setState({
+      dateIn: dateIn
+    })
   }
   handleDateOut(ev) {
     console.log(ev.target.value)
+    const dateOut = ev.target.value;
+    this.setState({
+      dateIn: dateOut
+    })
   }
 
 
