@@ -1,8 +1,13 @@
 import React from "react";
+import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
 
 function App() {
-  return <div className="App">Remeet SPA</div>;
+  return (
+    <React.Fragment>
+      <SearchParticipants />
+    </React.Fragment>
+  );
 }
 
 export default App;
