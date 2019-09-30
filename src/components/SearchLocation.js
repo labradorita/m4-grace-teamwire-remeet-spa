@@ -2,22 +2,41 @@ import React from 'react';
 import '../stylesheets/SearchLocation.scss'
 
 
-const SearchLocation = ()=>{
-    return(
-    <div class="searchlocation">
-        <h3 className="searchlocation__title">Meeting Point Availables</h3>
-        <i class="fas fa-chevron-up"/>
-        <div>
-            <ul className= "searchlocation__list">
-                <li className="searchlocation__city">Munich</li>
-                <p className="searchlocation__airport">Munchen Airport</p>
-                <li className="searchlocation__city">Madrid</li>
-                <p className="searchlocation__airport">Adolfo Suarez Barjas</p>
-                <i class="fas fa-plane"/>
-            </ul>
-        </div>
+const SearchLocation = () => {
+    return (
+        <div class="searchlocation">
+            <p className="searchlocation__title">Meeting Point Availables</p>
+            <div>
+                <i class="fas fa-chevron-up" />
+            </div>
+            <div className="searchlocation__container">
+                <ul className="searchlocation__list">
+                    <li>
+                        <h4 className="searchlocation__city">Munich</h4>
+                        <p className="searchlocation__airport">Munchen Airport</p>
+                       
+                    </li>
 
-    </div>
+                </ul>
+                <ul className="searchlocation__list">
+                    <li>
+                        <h4 className="searchlocation__city">Madrid</h4>
+                        <p className="searchlocation__airport">Adolfo Suarez</p>
+
+                    </li>
+
+                </ul>
+                <ul className="searchlocation__list">
+                    <li>
+                        <h4 className="searchlocation__city">London</h4>
+                        <p className="searchlocation__airport">Gatwick Airport</p>
+
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
     );
 }
 
