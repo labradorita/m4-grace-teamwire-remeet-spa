@@ -9,12 +9,12 @@ const day = actualDate.getDay();
 
 const currentDate = year + "-" + month + "-" + day;
 
-const SearchDate = () => {
+const SearchDate = (props) => {
     return (
         <section>
             <h2 className="search__date--title">Select Date</h2>
-            <InputSearchDate type="start" min={currentDate} />
-            <InputSearchDate type="end" />
+            <InputSearchDate type="start" min={currentDate} handleDate={props.handleDateIn} />
+            <InputSearchDate type="end" handleDate={props.handleDateOut} />
         </section>
     )
 }
