@@ -1,0 +1,52 @@
+@import "../core/variables";
+.SearchParticipants {
+  width: 480px;
+  height: 600px;
+  border: 2px solid grey;
+  box-shadow: 6px 6px 0px grey;
+  scroll-margin-right: true;
+
+  &__mainTitle {
+    text-transform: capitalize;
+    color: $cobalt-blue;
+    font-size: $size-section-title;
+    letter-spacing: 0.25px;
+  }
+  &____container {
+    display: flex;
+    border: 2px solid grey;
+  }
+  &__list {
+    width: 400px;
+  }
+  &__participant {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+  }
+  &__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  &__info {
+    padding-left: 10px;
+    &__name {
+      margin: 0px;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    &__city {
+      margin: 0px;
+      line-height: 1.43;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+  }
+
+  &__checkbox {
+    width: 18px;
+    height: 18px;
+  }
+}
