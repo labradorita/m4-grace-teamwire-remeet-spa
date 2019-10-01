@@ -2,6 +2,7 @@ import React from "react";
 import SearchButton from "./SearchButton";
 import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
+import SearchLocation from "./SearchLocation";
 import SearchDate from './SearchDate';
 import getDataFromServer from './getDataFromServer';
 import Header from './Header';
@@ -51,6 +52,7 @@ class App extends React.Component {
         />
         <React.Fragment>
           <SearchParticipants />
+          <SearchLocation/>
           <SearchButton />;
         </React.Fragment>
       </div>
