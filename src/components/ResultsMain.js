@@ -1,11 +1,13 @@
 import React from "react";
+import "../stylesheets/layouts/ResultsMain.scss";
 
 const ResultsMain = () => {
   return (
-    <div>
+    <div className="results-main">
       <img
         src="https://cdn.civitatis.com/espana/madrid/guia/madrid.jpg"
         alt="Madrid, Edificio Metrópolis"
+        className="results-main__image"
       />
       <div className="results-main__city-airport-price">
         <h2 className="results-main__city">City</h2>

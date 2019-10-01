@@ -1,5 +1,6 @@
 import React from "react";
 import ResultsMain from "./ResultsMain";
+import Return from "./Return";
 // import ResultsLink from "./ResultsLink";
 
 const ResultsCard = () => {
@@ -7,7 +8,7 @@ const ResultsCard = () => {
     <React.Fragment>
       <ResultsMain />
       {/* <ResultsList /> */}
-      <ResultsMain />
+      <Return />
     </React.Fragment>
   );
 };
