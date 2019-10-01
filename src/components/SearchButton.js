@@ -1,18 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "../stylesheets/layouts/SearchButton.scss";
 
 const SearchButton = () => {
   return (
     <div className="SearchButton">
       <div className="SearchButton__container">
-        <button className="SearchButton__button">
-          <strong>search </strong>
-        </button>
+        <Link to="/results">
+          <button className="SearchButton__button">
+            <strong>search </strong>
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-SearchButton.propTypes = {};
+//SearchButton.propTypes = {};
 export default SearchButton;

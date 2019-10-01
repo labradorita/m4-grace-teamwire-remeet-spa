@@ -1,10 +1,10 @@
 import React from "react";
-import SearchButton from "./SearchButton";
-import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
-import SearchDate from './SearchDate';
 import getDataFromServer from './getDataFromServer';
-import Header from './Header';
+import { Switch, Route, Link } from "react-router-dom";
+import Header from "./Header";
+import Home from "./Home";
+import Results from "./Results";
 
 
 class App extends React.Component {
@@ -19,9 +19,29 @@ class App extends React.Component {
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
+    //this.getDataFromServer = this.getDataFromServer.bind(this)
   }
 
   componentDidMount() {
+    const employeesURL = "https://adalab-teamwire.herokuapp.com/employees";
+    const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
+    const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
+
+    getDataFromServer(employeesURL)
+      .then(employees => this.setState({
+        employees: employees,
+      }))
+
+    getDataFromServer(officesURL)
+      .then(offices => this.setState({
+        offices: offices,
+      }))
+
+    getDataFromServer(airportsURL)
+      .then(airports => this.setState({
+        airports: airports,
+      }, () => console.log(this.state)))
+
 
   }
 
@@ -39,24 +59,19 @@ class App extends React.Component {
       dateIn: dateOut
     });
   }
-
   render() {
+    console.log(this.state)
     return (
-  
-      <div className="App">
-        <Header/>
-        <SearchDate
-          handleDateIn={this.handleDateIn}
-          handleDateOut={this.handleDateOut}
-        />
-        <React.Fragment>
-          <SearchParticipants />
-          <SearchButton />;
-        </React.Fragment>
-      </div>
+      <React.Fragment>
+        <Header />
+        <Link to="/results">Results</Link>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/results" component={Results} />
+        </Switch>
+      </React.Fragment>
     );
   }
-
 }
 
 export default App;

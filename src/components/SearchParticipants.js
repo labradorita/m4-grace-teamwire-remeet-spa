@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import "../stylesheets/layouts/SearchParticipants.scss";
 import face from "../images/face-1.jpg";
 import face2 from "../images/face-2.png";
@@ -24,7 +24,7 @@ const SearchParticipants = () => {
             <input
               className="SearchParticipants__checkbox"
               type="checkbox"
-              checked="checked"
+              defaultChecked="checked"
               //onChange =
             ></input>
           </li>
@@ -44,7 +44,7 @@ const SearchParticipants = () => {
             <input
               className="SearchParticipants__checkbox"
               type="checkbox"
-              checked="checked"
+              defaultChecked="checked"
               //onChange =
             ></input>
           </li>
@@ -54,5 +54,5 @@ const SearchParticipants = () => {
   );
 };
 
-SearchParticipants.propTypes = {};
+//SearchParticipants.propTypes = {};
 export default SearchParticipants;
