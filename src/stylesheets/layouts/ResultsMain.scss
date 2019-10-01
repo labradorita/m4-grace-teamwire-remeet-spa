@@ -2,7 +2,7 @@
 
 .results-main {
   width: 400px;
-  border: 0.5 solid gray;
+  border: 1px solid gray;
   border-radius: 5px;
 
   &__image {
@@ -65,7 +65,7 @@
   }
   &__participants-item {
     padding: 10px 16px 10px 16px;
-    border: 0.5px solid $brown-grey;
+    border-top: 0.5px solid $brown-grey;
     border-radius: 1px;
     height: 72px;
     display: flex;
