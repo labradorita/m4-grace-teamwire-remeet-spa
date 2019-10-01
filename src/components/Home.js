@@ -14,7 +14,7 @@ const Home = () => {
       <React.Fragment>
         <SearchParticipants />
         <SearchLocation />
-        <SearchButton />;
+        <SearchButton />
       </React.Fragment>
     </div>
   );
