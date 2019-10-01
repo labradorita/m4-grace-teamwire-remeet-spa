@@ -4,7 +4,6 @@ const Home = () => {
   return (
     <div className="header">
       <p>HOME</p>
-      <p>HOMEHOMEHOMEHOE</p>
     </div>
   );
 };

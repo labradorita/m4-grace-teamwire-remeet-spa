@@ -1,19 +1,15 @@
 import React from "react";
-import ResultsList from "./ResultsList";
-import ResultsButton from "./ResultsButton";
-import Return from "./Return";
 import "../stylesheets/layouts/Results.scss";
+import ResultsCard from "./ResultsCard";
+
+import ResultsMessage from "./ResultsMessage";
 
 const Results = () => {
   return (
     <React.Fragment>
-      <div className="results__container">
-        <ul className="results__list">
-          <ResultsList />
-        </ul>
-        <ResultsButton />
-      </div>
-      <Return />
+      <div>Results</div>
+      <ResultsCard />
+      <ResultsMessage />
     </React.Fragment>
   );
 };
