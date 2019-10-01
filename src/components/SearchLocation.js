@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/SearchLocation.scss'
+import '../stylesheets/layouts/SearchLocation.scss'
 
 
 
