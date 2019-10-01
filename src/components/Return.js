@@ -1,7 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import "../stylesheets/components/Return.scss";
 
 const Return = () => {
-  return <button className="return-button">NEW SEARCH</button>;
+  return (
+    <Link to="/">
+      <button className="return__button">NEW SEARCH</button>
+    </Link>
+  );
 };
 
 export default Return;

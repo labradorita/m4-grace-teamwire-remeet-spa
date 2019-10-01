@@ -1,4 +1,5 @@
 import React from "react";
+import "../stylesheets/components/ResultsMessage.scss";
 
 const ResultsMessage = () => {
   return (
