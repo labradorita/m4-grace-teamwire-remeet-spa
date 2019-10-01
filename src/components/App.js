@@ -15,11 +15,13 @@ class App extends React.Component {
       offices: [],
       airports: [],
       dateIn: "", // AAAA-MM-DD
-      dateOut: "" // AAAA-MM-DD
+      dateOut: "", // AAAA-MM-DD
+      participants: [],
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
     //this.getDataFromServer = this.getDataFromServer.bind(this)
+
   }
 
   componentDidMount() {
@@ -47,10 +49,9 @@ class App extends React.Component {
     const { employees, airports } = this.state;
     debugger;
     const newEmployees = employees.map(employee => {
-      const airport = airports.find(airport => airport.code === employee.airportCode)
-      return { ...employee, airport: airport }
-    })
-    console.log(newEmployees)
+      const airport = airports.find(airport => airport.code === employee.airportCode);
+      return { ...employee, airport: airport.name }
+    });
   }
 
 
@@ -71,7 +72,6 @@ class App extends React.Component {
   }
 
   render() {
-    this.getAirportName();
     return (
       <React.Fragment >
         <Header />
