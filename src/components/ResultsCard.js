@@ -2,17 +2,15 @@ import React from "react";
 import ResultsMain from "./ResultsMain";
 import Return from "./Return";
 import ResultsList from "./ResultsList";
-import "../stylesheets/layouts/Results.scss";
+import "../stylesheets/layouts/ResultsCard.scss";
 
 const ResultsCard = () => {
   return (
     <React.Fragment>
-      <div className="results__card">
+      <div className="results-card">
         <ResultsMain />
-        <div className="results__container">
-          <ResultsList />
-          <Return />
-        </div>
+        <ResultsList />
+        <Return />
       </div>
     </React.Fragment>
   );
