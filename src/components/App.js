@@ -1,4 +1,5 @@
 import React from "react";
+import SearchButton from "./SearchButton";
 import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
 import SearchDate from "./SearchDate";
@@ -39,6 +40,7 @@ class App extends React.Component {
         />
         <React.Fragment>
           <SearchParticipants />
+          <SearchButton />;
         </React.Fragment>
       </div>
     );
