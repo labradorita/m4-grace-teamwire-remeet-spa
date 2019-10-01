@@ -2,12 +2,9 @@ import React from "react";
 import SearchButton from "./SearchButton";
 import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
-<<<<<<< HEAD
 import SearchDate from './SearchDate';
 import getDataFromServer from './getDataFromServer';
-=======
-import SearchDate from "./SearchDate";
->>>>>>> 048cf01bd07dd925d0e7b0790b25c455ec8a9be0
+
 
 class App extends React.Component {
   constructor(props) {
@@ -21,9 +18,29 @@ class App extends React.Component {
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
+    //this.getDataFromServer = this.getDataFromServer.bind(this)
   }
 
   componentDidMount() {
+    const employeesURL = "https://adalab-teamwire.herokuapp.com/employees";
+    const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
+    const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
+
+    getDataFromServer(employeesURL)
+      .then(employees => this.setState({
+        employees: employees,
+      }))
+
+    getDataFromServer(officesURL)
+      .then(offices => this.setState({
+        offices: offices,
+      }))
+
+    getDataFromServer(airportsURL)
+      .then(airports => this.setState({
+        airports: airports,
+      }, () => console.log(this.state)))
+
 
   }
 
@@ -43,9 +60,9 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="App">
-        Remeet SPA
         <SearchDate
           handleDateIn={this.handleDateIn}
           handleDateOut={this.handleDateOut}
