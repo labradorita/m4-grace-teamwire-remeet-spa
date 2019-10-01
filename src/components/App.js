@@ -73,6 +73,7 @@ class App extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <React.Fragment >
         <Header />
         <Link to="/results">Results</Link>
@@ -81,6 +82,17 @@ class App extends React.Component {
           <Route path="/results" component={Results} />
         </Switch>
       </React.Fragment >
+=======
+      <React.Fragment>
+        <div className="app">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/results" component={Results} />
+          </Switch>
+        </div>
+      </React.Fragment>
+>>>>>>> dev
     );
   }
 }

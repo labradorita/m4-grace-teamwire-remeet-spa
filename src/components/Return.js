@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import "../stylesheets/components/Return.scss";
+import "../stylesheets/layouts/Return.scss";
 
 const Return = () => {
   return (
     <Link to="/">
-      <button className="return__button">NEW SEARCH</button>
+      <button className="return-button">NEW SEARCH</button>
     </Link>
   );
 };
