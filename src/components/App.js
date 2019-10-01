@@ -14,7 +14,8 @@ class App extends React.Component {
       offices: [],
       airports: [],
       dateIn: "", // AAAA-MM-DD
-      dateOut: "" // AAAA-MM-DD
+      dateOut: "", // AAAA-MM-DD
+      participants: []
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
@@ -39,13 +40,22 @@ class App extends React.Component {
     );
 
     getDataFromServer(airportsURL).then(airports =>
-      this.setState(
-        {
-          airports: airports
-        },
-        () => console.log(this.state)
-      )
+      this.setState({
+        airports: airports
+      })
     );
+  }
+
+  getAirportName() {
+    const { employees, airports } = this.state;
+    debugger;
+    const newEmployees = employees.map(employee => {
+      const airport = airports.find(
+        airport => airport.code === employee.airportCode
+      );
+      return { ...employee, airport: airport.name };
+    });
+    return newEmployees;
   }
 
   handleDateIn(ev) {
@@ -59,20 +69,28 @@ class App extends React.Component {
     console.log(ev.target.value);
     const dateOut = ev.target.value;
     this.setState({
-      dateIn: dateOut
+      dateOut: dateOut
     });
   }
+
   render() {
-    console.log(this.state);
     return (
       <React.Fragment>
-        <div className="app">
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/results" component={Results} />
-          </Switch>
-        </div>
+        <Header />
+        <Link to="/results">Results</Link>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Home
+                handleDateIn={this.handleDateIn}
+                handleDateOut={this.handleDateOut}
+              />
+            )}
+          />
+          <Route path="/results" component={Results} />
+        </Switch>
       </React.Fragment>
     );
   }

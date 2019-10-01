@@ -6,12 +6,10 @@ import SearchParticipants from "./SearchParticipants";
 import homeImage from "../images/Illustration.png";
 import "../stylesheets/layouts/Home.scss";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="App">
-      <SearchDate
-      // handleDateIn={this.handleDateIn}
-      // handleDateOut={this.handleDateOut}
+      <SearchDate handleDateIn={props.handleDateIn} handleDateOut={props.handleDateOut}
       />
       <React.Fragment>
         <SearchParticipants />
