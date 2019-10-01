@@ -1,58 +1,52 @@
-@import "./core/variables.scss";
+@import "./core/variables";
 
-.searchlocation{
-    width:480px;
-    height:395px;
-    scroll-margin-right:true;
-    margin:80px;
-    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
-    border-radius: 2px;
-  
-    &__title{
-        display:flex;
-        align-items: center;
-        font-family: $font;
-        font-size: 14px;
-        line-height: 1.43px;
-        letter-spacing: 0.25px;
-        color:$cobalt-bue ;
-        height:60px;
-        border-bottom: 1px solid lightgrey;
-        padding:19px 226px 21px 41px;
-    }
-    &__container{
-      
-        
-    }
-    &__list{
+.searchlocation {
+  width: 480px;
+  height: 395px;
+  scroll-margin-right: true;
+  margin: 80px;
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
+  border-radius: 2px;
 
-        list-style: none;
-        width: 400px;
-        height: 62px;
-        display:flex;
-        align-items: center;
-        padding-bottom: 10px;
-        border-bottom: 1px solid lightgrey;
-        padding:10px 0px 10px 56px;
-     
-    }
-    &__city{
-        font-family: $font;
-        font-size: 16px;
-        line-height: 1.5px;
-        letter-spacing: 0.15px;
-       color: rgba(0, 0, 0, 0.87)
-
-    }
-    &__airport{
-        font-family: $font;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.6);
-
-    }
-    &__img{
-        width:40px;
-        height:40px;
-
-    }
+  &__title {
+    display: flex;
+    align-items: center;
+    font-family: $font;
+    font-size: 14px;
+    line-height: 1.43px;
+    letter-spacing: 0.25px;
+    color: $cobalt-blue;
+    height: 60px;
+    border-bottom: 1px solid lightgrey;
+    padding: 19px 226px 21px 41px;
+  }
+  &__container {
+  }
+  &__list {
+    list-style: none;
+    width: 400px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+    padding: 10px 0px 10px 56px;
+  }
+  &__city {
+    font-family: $font;
+    font-size: 16px;
+    line-height: 1.5px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  &__airport {
+    font-family: $font;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  &__img {
+    width: 40px;
+    height: 40px;
+  }
 }
