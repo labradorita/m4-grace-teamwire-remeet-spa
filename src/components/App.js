@@ -4,6 +4,8 @@ import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
 import SearchDate from './SearchDate';
 import getDataFromServer from './getDataFromServer';
+import Header from './Header';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -40,8 +42,9 @@ class App extends React.Component {
 
   render() {
     return (
+  
       <div className="App">
-        Remeet SPA
+        <Header/>
         <SearchDate
           handleDateIn={this.handleDateIn}
           handleDateOut={this.handleDateOut}
@@ -53,6 +56,7 @@ class App extends React.Component {
       </div>
     );
   }
+
 }
 
 export default App;
