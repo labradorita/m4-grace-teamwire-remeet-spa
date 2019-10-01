@@ -1,44 +1,18 @@
 @import "../core/variables";
 
 .results {
-  &__list {
-    margin: 0;
-    padding: 0;
+  height: 100vh;
+  &__city-image {
+    position: absolute;
+    height: 60%;
+    z-index: -1;
+    right: 0px;
+    bottom: 240px;
   }
-  &__item {
-    list-style: none;
-    width: 100%;
-
-    &__city {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      &__title {
-        padding: 16px;
-      }
-    }
-    &__totalprice {
-      padding: 13px 22px 16px 0;
-    }
-    &__partial {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      background-color: rgba(151, 151, 151, 0.1);
-      border: 1px solid lightgrey;
-      border-radius: 5px;
-    }
-    &__participants {
-      margin: 0;
-      padding: 15px 0 15px 40px;
-    }
-    &__price {
-      font-family: $font;
-      font-size: 20px;
-      letter-spacing: 0.25px;
-      color: rgba(0, 0, 0, 0.87);
-      padding: 33px 22px 13px;
-      margin: 0;
-    }
+  &__bottom-image {
+    position: absolute;
+    z-index: -1;
+    left: 0px;
+    bottom: 0px;
   }
 }
