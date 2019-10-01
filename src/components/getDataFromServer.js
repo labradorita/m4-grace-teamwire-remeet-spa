@@ -1,6 +1,11 @@
-const getDataFromServer = () => {
-    const employeesURL = "https://adalab-teamwire.herokuapp.com/employees"
-    fetch(employeesURL)
+const getDataFromServer = (url) => {
+    return fetch(url, {
+        method: 'GET',
+    })
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => data)
+        //.then(employees => console.log(employees))
+        .catch(error => console.log(error));
 }
+
+export default getDataFromServer;
