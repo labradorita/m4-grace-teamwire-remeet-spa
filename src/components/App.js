@@ -1,8 +1,27 @@
 import React from "react";
 import "../stylesheets/layouts/App.scss";
+import { Switch, Route, Link } from "react-router-dom";
+import Header from "./Header";
+import Home from "./Home";
+import Results from "./Results";
 
-function App() {
-  return <div className="App">Remeet SPA</div>;
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Header />
+        <Link to="/results">Results</Link>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/results" component={Results} />
+        </Switch>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
