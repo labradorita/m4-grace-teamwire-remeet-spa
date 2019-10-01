@@ -15,11 +15,13 @@ class App extends React.Component {
       offices: [],
       airports: [],
       dateIn: "", // AAAA-MM-DD
-      dateOut: "" // AAAA-MM-DD
+      dateOut: "", // AAAA-MM-DD
+      participants: [],
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
     //this.getDataFromServer = this.getDataFromServer.bind(this)
+
   }
 
   componentDidMount() {
@@ -30,20 +32,29 @@ class App extends React.Component {
     getDataFromServer(employeesURL)
       .then(employees => this.setState({
         employees: employees,
-      }))
+      }));
 
     getDataFromServer(officesURL)
       .then(offices => this.setState({
         offices: offices,
-      }))
+      }));
 
     getDataFromServer(airportsURL)
       .then(airports => this.setState({
         airports: airports,
-      }, () => console.log(this.state)))
-
-
+      }))
   }
+
+  getAirportName() {
+    const { employees, airports } = this.state;
+    debugger;
+    const newEmployees = employees.map(employee => {
+      const airport = airports.find(airport => airport.code === employee.airportCode);
+      return { ...employee, airport: airport.name }
+    });
+  }
+
+
 
   handleDateIn(ev) {
     console.log(ev.target.value);
@@ -56,12 +67,22 @@ class App extends React.Component {
     console.log(ev.target.value);
     const dateOut = ev.target.value;
     this.setState({
-      dateIn: dateOut
+      dateOut: dateOut
     });
   }
+
   render() {
-    console.log(this.state)
     return (
+<<<<<<< HEAD
+      <React.Fragment >
+        <Header />
+        <Link to="/results">Results</Link>
+        <Switch>
+          <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} />} />
+          <Route path="/results" component={Results} />
+        </Switch>
+      </React.Fragment >
+=======
       <React.Fragment>
         <div className="app">
           <Header />
@@ -71,6 +92,7 @@ class App extends React.Component {
           </Switch>
         </div>
       </React.Fragment>
+>>>>>>> dev
     );
   }
 }
