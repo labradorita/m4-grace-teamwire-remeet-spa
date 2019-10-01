@@ -1,9 +1,10 @@
 import React from "react";
-import SearchButton from "./SearchButton";
-import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
-import SearchDate from './SearchDate';
 import getDataFromServer from './getDataFromServer';
+import { Switch, Route, Link } from "react-router-dom";
+import Header from "./Header";
+import Home from "./Home";
+import Results from "./Results";
 
 
 class App extends React.Component {
@@ -58,20 +59,17 @@ class App extends React.Component {
       dateIn: dateOut
     });
   }
-
   render() {
     console.log(this.state)
     return (
-      <div className="App">
-        <SearchDate
-          handleDateIn={this.handleDateIn}
-          handleDateOut={this.handleDateOut}
-        />
-        <React.Fragment>
-          <SearchParticipants />
-          <SearchButton />;
-        </React.Fragment>
-      </div>
+      <React.Fragment>
+        <Header />
+        <Link to="/results">Results</Link>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/results" component={Results} />
+        </Switch>
+      </React.Fragment>
     );
   }
 }

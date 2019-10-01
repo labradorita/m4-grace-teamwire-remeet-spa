@@ -1,0 +1,17 @@
+@import "../core/variables";
+
+.results-message {
+  width: 420px;
+  position: relative;
+  top: 0;
+  left: &__message {
+    font-family: $font;
+    color: $cobalt-blue;
+    font-size: 60px;
+    font-weight: 300;
+  }
+  &__image {
+    width: 300px;
+    border-radius: 50px;
+  }
+}
