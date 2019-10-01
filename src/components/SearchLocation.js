@@ -2,6 +2,8 @@ import React from 'react';
 import '../stylesheets/SearchLocation.scss'
 
 
+
+
 const SearchLocation = () => {
     return (
         <div class="searchlocation">
