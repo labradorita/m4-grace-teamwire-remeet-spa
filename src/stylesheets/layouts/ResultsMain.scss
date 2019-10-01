@@ -2,10 +2,13 @@
 
 .results-main {
   width: 400px;
+  border: 0.5 solid gray;
+  border-radius: 5px;
 
   &__image {
     width: 400px;
     border-radius: 5px 5px 0 0;
+    background-size: cover;
   }
   &__booking-section {
     display: flex;
@@ -19,6 +22,7 @@
   &__city {
     color: $cobalt-blue;
     font-size: 24px;
+    font-weight: 450;
     margin: 10px 0 6px 16px;
   }
   &__airport {
@@ -45,10 +49,11 @@
     text-align: center;
     line-height: 1.14;
     border-radius: 5px;
-    margin: 10px 21px 0 0;
+    margin: 10px 21px 45px 0;
   }
   &__total-price {
     font-size: 12px;
+    margin: 0;
   }
   &__participants-info {
     overflow: hidden;
@@ -82,7 +87,7 @@
   &__participants-location {
     font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
-    margin: 0;
+    margin: 0 0 0 24px;
   }
   &__participants--right-column {
     display: flex;
@@ -93,4 +98,8 @@
   &__participants-price {
     font-size: 20px;
   }
+}
+
+.fa-user {
+  margin-right: 10px;
 }

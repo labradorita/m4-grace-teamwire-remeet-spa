@@ -1,14 +1,9 @@
-@import "../core/variables";
-
-.results {
-  &__list {
-    margin: 0;
-    padding: 0;
-  }
+.results-list {
+  list-style: none;
   &__item {
-    list-style: none;
     width: 100%;
-
+    list-style: none;
+  }
     &__city {
       display: flex;
       flex-direction: row;

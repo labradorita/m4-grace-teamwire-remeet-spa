@@ -25,19 +25,7 @@ const ResultsMain = () => {
           <li className="results-main__participants-item">
             <div className="results-main__participants--left-column">
               <h4 className="results-main__participants-number">
-                {`Nº`} participants
-              </h4>
-              <p className="results-main__participants-location">
-                From {`location`}
-              </p>
-            </div>
-            <div className="results-main__participants--right-column">
-              <number className="results-main__participants-price">{`000 €`}</number>
-            </div>
-          </li>
-          <li className="results-main__participants-item">
-            <div className="results-main__participants--left-column">
-              <h4 className="results-main__participants-number">
+                <i className="far fa-user"></i>
                 {`Nº`} participants
               </h4>
               <p className="results-main__participants-location">

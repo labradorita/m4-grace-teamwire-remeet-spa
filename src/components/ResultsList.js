@@ -1,36 +1,34 @@
 import React from "react";
-import "../stylesheets/layouts/Results.scss";
+import "../stylesheets/layouts/ResultsMain.scss";
 
 const ResultsList = () => {
   return (
-    <li className="results__item">
-      <div>
-        <div className="results__item__city">
-          <div className="results__item__city__title">
+    <ul className="results-list">
+      <li className="results-list__item">
+        <div className="results-list__item-city">
+          <div className="results-list__item-city--title">
             <h3>London</h3>
             <small>Gatwick Airport</small>
           </div>
-          <div className="results__item__totalprice">
+          <div className="results-list__item--total-price">
             <h2>1.250€</h2>
             <small>TOTAL PRICE</small>
           </div>
         </div>
-        <div className="results__item__partial">
-          <div className="results__item__participants">
-            <h4> 2 Participants</h4>
-            <small>From Madrid</small>
-          </div>
-          <p className="results__item__price">950€</p>
+        <div className="results-main__participants--left-column">
+          <h4 className="results-main__participants-number">
+            <i className="far fa-user"></i>
+            {`Nº`} participants
+          </h4>
+          <p className="results-main__participants-location">
+            From {`location`}
+          </p>
         </div>
-        <div className="results__item__partial">
-          <div className="results__item__participants">
-            <h4> 1 Participant</h4>
-            <small>From Geneva</small>
-          </div>
-          <p className="results__item__price">300€</p>
+        <div className="results-main__participants--right-column">
+          <number className="results-main__participants-price">{`000 €`}</number>
         </div>
-      </div>
-    </li>
+      </li>
+    </ul>
   );
 };
 
