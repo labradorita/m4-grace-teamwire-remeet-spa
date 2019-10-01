@@ -2,12 +2,8 @@ import React from "react";
 import SearchButton from "./SearchButton";
 import SearchParticipants from "./SearchParticipants";
 import "../stylesheets/layouts/App.scss";
-<<<<<<< HEAD
 import SearchDate from './SearchDate';
 import getDataFromServer from './getDataFromServer';
-=======
-import SearchDate from "./SearchDate";
->>>>>>> 048cf01bd07dd925d0e7b0790b25c455ec8a9be0
 
 class App extends React.Component {
   constructor(props) {
