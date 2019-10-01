@@ -7,9 +7,10 @@ import ResultsMessage from "./ResultsMessage";
 const Results = () => {
   return (
     <React.Fragment>
-      <div>Results</div>
-      <ResultsCard />
-      <ResultsMessage />
+      <div className="results">
+        <ResultsCard />
+        <ResultsMessage />
+      </div>
     </React.Fragment>
   );
 };

@@ -1,6 +1,15 @@
 @import "../core/variables";
 
 .results {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__card {
+    width: 480px;
+    border: 1px solid blue;
+    position: relative;
+    left: 80px;
+  }
   &__container {
     margin: auto;
     width: 400px;
