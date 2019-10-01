@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Link to="/results">Results</Link>
+        {/* <Link to="/results">Results</Link> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/results" component={Results} />
