@@ -27,6 +27,8 @@ input[type="date"]:valid::before {
     &--title {
       color: $cobalt-blue;
       margin: 5px;
+      padding-bottom: 14px;
+    
     }
     &--wrapper {
       margin: 5px;

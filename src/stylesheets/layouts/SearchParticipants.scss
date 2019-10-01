@@ -1,9 +1,11 @@
 @import "../core/variables";
 .SearchParticipants {
-  width: 480px;
-  height: 600px;
+  width: 400px;
+  height: auto;
 
   &__mainTitle {
+    padding: 27px;
+    margin-left: 4px;
     text-transform: capitalize;
     color: $cobalt-blue;
     font-size: $size-section-title;
@@ -11,8 +13,8 @@
   }
   &__container {
     overflow-y: scroll;
-
-    border: 2px solid grey;
+    overflow-x: hidden;
+   
   }
   &__list {
     width: 400px;
@@ -23,11 +25,15 @@
   }
 
   &__participant {
+    height: 67px;
+    width:400px;
+    margin-left:40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgrey;
+    letter-spacing: 0.15px; 
   }
   &__img {
     width: 40px;
@@ -40,6 +46,9 @@
       margin: 0px;
       line-height: 1.5;
       font-size: 16px;
+      font-family: $font;
+      letter-spacing: 0.15px;
+      
     }
     &__city {
       margin: 0px;
