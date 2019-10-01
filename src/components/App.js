@@ -30,20 +30,21 @@ class App extends React.Component {
     getDataFromServer(employeesURL)
       .then(employees => this.setState({
         employees: employees,
-      }))
+      }));
 
     getDataFromServer(officesURL)
       .then(offices => this.setState({
         offices: offices,
-      }))
+      }));
 
     getDataFromServer(airportsURL)
       .then(airports => this.setState({
         airports: airports,
-      }, () => console.log(this.state)))
-
-
+      }))
   }
+
+
+
 
   handleDateIn(ev) {
     console.log(ev.target.value);
@@ -53,6 +54,7 @@ class App extends React.Component {
     });
   }
   handleDateOut(ev) {
+    debugger;
     console.log(ev.target.value);
     const dateOut = ev.target.value;
     this.setState({
@@ -60,16 +62,15 @@ class App extends React.Component {
     });
   }
   render() {
-    console.log(this.state)
     return (
-      <React.Fragment>
+      <React.Fragment >
         <Header />
         <Link to="/results">Results</Link>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} />} />
           <Route path="/results" component={Results} />
         </Switch>
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }
