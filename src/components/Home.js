@@ -3,6 +3,8 @@ import SearchLocation from "./SearchLocation";
 import SearchDate from "./SearchDate";
 import SearchButton from "./SearchButton";
 import SearchParticipants from "./SearchParticipants";
+import homeImage from "../images/Illustration.png";
+import "../stylesheets/layouts/Home.scss";
 
 const Home = (props) => {
   return (
@@ -12,7 +14,8 @@ const Home = (props) => {
       <React.Fragment>
         <SearchParticipants />
         <SearchLocation />
-        <SearchButton />;
+        <SearchButton />
+        <img src={homeImage} alt="map illustration" className="home__image" />
       </React.Fragment>
     </div>
   );

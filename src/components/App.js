@@ -1,11 +1,10 @@
 import React from "react";
 import "../stylesheets/layouts/App.scss";
-import getDataFromServer from './getDataFromServer';
+import getDataFromServer from "./getDataFromServer";
 import { Switch, Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
-
 
 class App extends React.Component {
   constructor(props) {
@@ -16,12 +15,11 @@ class App extends React.Component {
       airports: [],
       dateIn: "", // AAAA-MM-DD
       dateOut: "", // AAAA-MM-DD
-      participants: [],
+      participants: []
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
     //this.getDataFromServer = this.getDataFromServer.bind(this)
-
   }
 
   componentDidMount() {
@@ -29,32 +27,36 @@ class App extends React.Component {
     const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
     const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
 
-    getDataFromServer(employeesURL)
-      .then(employees => this.setState({
-        employees: employees,
-      }));
+    getDataFromServer(employeesURL).then(employees =>
+      this.setState({
+        employees: employees
+      })
+    );
 
-    getDataFromServer(officesURL)
-      .then(offices => this.setState({
-        offices: offices,
-      }));
+    getDataFromServer(officesURL).then(offices =>
+      this.setState({
+        offices: offices
+      })
+    );
 
-    getDataFromServer(airportsURL)
-      .then(airports => this.setState({
-        airports: airports,
-      }))
+    getDataFromServer(airportsURL).then(airports =>
+      this.setState({
+        airports: airports
+      })
+    );
   }
 
   getAirportName() {
     const { employees, airports } = this.state;
     debugger;
     const newEmployees = employees.map(employee => {
-      const airport = airports.find(airport => airport.code === employee.airportCode);
-      return { ...employee, airport: airport.name }
+      const airport = airports.find(
+        airport => airport.code === employee.airportCode
+      );
+      return { ...employee, airport: airport.name };
     });
+    return newEmployees;
   }
-
-
 
   handleDateIn(ev) {
     console.log(ev.target.value);
@@ -73,26 +75,23 @@ class App extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <React.Fragment >
+      <React.Fragment>
         <Header />
         <Link to="/results">Results</Link>
         <Switch>
-          <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} />} />
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Home
+                handleDateIn={this.handleDateIn}
+                handleDateOut={this.handleDateOut}
+              />
+            )}
+          />
           <Route path="/results" component={Results} />
         </Switch>
-      </React.Fragment >
-=======
-      <React.Fragment>
-        <div className="app">
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/results" component={Results} />
-          </Switch>
-        </div>
       </React.Fragment>
->>>>>>> dev
     );
   }
 }

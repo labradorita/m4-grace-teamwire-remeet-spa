@@ -2,9 +2,6 @@
 .SearchParticipants {
   width: 480px;
   height: 600px;
-  border: 2px solid grey;
-  box-shadow: 6px 6px 0px grey;
-  scroll-margin-right: true;
 
   &__mainTitle {
     text-transform: capitalize;
@@ -12,15 +9,22 @@
     font-size: $size-section-title;
     letter-spacing: 0.25px;
   }
-  &____container {
-    display: flex;
+  &__container {
+    overflow-y: scroll;
+
     border: 2px solid grey;
   }
   &__list {
     width: 400px;
   }
+  &__data {
+    display: flex;
+    flex-direction: row;
+  }
+
   &__participant {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgrey;
@@ -49,4 +53,72 @@
     width: 18px;
     height: 18px;
   }
+}
+
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: $default-check-color;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: $hover-check-color;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: $check-color;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 3px;
+  height: 8px;
+  border: solid $white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
