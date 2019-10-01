@@ -6,15 +6,19 @@ import SearchParticipants from "./SearchParticipants";
 import homeImage from "../images/Illustration.png";
 import "../stylesheets/layouts/Home.scss";
 
-const Home = (props) => {
+const Home = props => {
   return (
     <div className="App">
-      <SearchDate handleDateIn={props.handleDateIn} handleDateOut={props.handleDateOut}
+      <SearchDate
+        handleDateIn={props.handleDateIn}
+        handleDateOut={props.handleDateOut}
       />
       <React.Fragment>
+        <div className="home__title">remote meeting calculator</div>
         <SearchParticipants />
         <SearchLocation />
         <SearchButton />
+
         <img src={homeImage} alt="map illustration" className="home__image" />
       </React.Fragment>
     </div>
