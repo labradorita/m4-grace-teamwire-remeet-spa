@@ -1,11 +1,10 @@
 import React from "react";
 import "../stylesheets/layouts/App.scss";
-import getDataFromServer from './getDataFromServer';
+import getDataFromServer from "./getDataFromServer";
 import { Switch, Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
-
 
 class App extends React.Component {
   constructor(props) {
@@ -27,22 +26,26 @@ class App extends React.Component {
     const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
     const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
 
-    getDataFromServer(employeesURL)
-      .then(employees => this.setState({
-        employees: employees,
-      }))
+    getDataFromServer(employeesURL).then(employees =>
+      this.setState({
+        employees: employees
+      })
+    );
 
-    getDataFromServer(officesURL)
-      .then(offices => this.setState({
-        offices: offices,
-      }))
+    getDataFromServer(officesURL).then(offices =>
+      this.setState({
+        offices: offices
+      })
+    );
 
-    getDataFromServer(airportsURL)
-      .then(airports => this.setState({
-        airports: airports,
-      }, () => console.log(this.state)))
-
-
+    getDataFromServer(airportsURL).then(airports =>
+      this.setState(
+        {
+          airports: airports
+        },
+        () => console.log(this.state)
+      )
+    );
   }
 
   handleDateIn(ev) {
@@ -60,13 +63,18 @@ class App extends React.Component {
     });
   }
   render() {
-    console.log(this.state)
+    const { employees } = this.state;
+    console.log(this.state);
     return (
       <React.Fragment>
         <Header />
         <Link to="/results">Results</Link>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/"
+            render={() => <Home employees={this.employees} />}
+          />
           <Route path="/results" component={Results} />
         </Switch>
       </React.Fragment>

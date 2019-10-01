@@ -4,7 +4,8 @@ import "../stylesheets/layouts/SearchParticipants.scss";
 import face from "../images/face-1.jpg";
 import face2 from "../images/face-2.png";
 
-const SearchParticipants = () => {
+const SearchParticipants = props => {
+  const { employees } = props;
   return (
     <div className="SearchParticipants">
       <h2 className="SearchParticipants__mainTitle">select participants</h2>
