@@ -43,6 +43,15 @@ class App extends React.Component {
       }))
   }
 
+  getAirportName() {
+    const { employees, airports } = this.state;
+    debugger;
+    const newEmployees = employees.map(employee => {
+      const airport = airports.find(airport => airport.code === employee.airportCode)
+      return { ...employee, airport: airport }
+    })
+    console.log(newEmployees)
+  }
 
 
 
@@ -54,14 +63,15 @@ class App extends React.Component {
     });
   }
   handleDateOut(ev) {
-    debugger;
     console.log(ev.target.value);
     const dateOut = ev.target.value;
     this.setState({
-      dateIn: dateOut
+      dateOut: dateOut
     });
   }
+
   render() {
+    this.getAirportName();
     return (
       <React.Fragment >
         <Header />
