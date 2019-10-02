@@ -1,52 +1,128 @@
 @import "../core/variables";
-.SearchParticipants {
-  width: 480px;
-  height: 600px;
-  border: 2px solid grey;
-  box-shadow: 6px 6px 0px grey;
-  scroll-margin-right: true;
+.search-participants {
+  width: 400px;
+  height: 300px;
+  background-color: $white;
 
-  &__mainTitle {
+  &__title {
+    margin: 20px 0 15px 0;
     text-transform: capitalize;
     color: $cobalt-blue;
-    font-size: $size-section-title;
+    font-size: 20px;
+    font-weight: 500;
     letter-spacing: 0.25px;
   }
-  &____container {
-    display: flex;
-    border: 2px solid grey;
-  }
+  // &__container {
+  //   overflow-y: scroll;
+  //   overflow-x: hidden;
+  // }
   &__list {
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 400px;
   }
-  &__participant {
+  &__data {
     display: flex;
+    flex-direction: row;
+  }
+
+  &__participant {
+    height: 67px;
+    margin-left: 40px;
+    margin-right: 0px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgrey;
+    letter-spacing: 0.15px;
   }
-  &__img {
+  &__image {
     width: 40px;
     height: 40px;
     border-radius: 50%;
   }
   &__info {
     padding-left: 10px;
-    &__name {
-      margin: 0px;
-      line-height: 1.5;
-      font-size: 16px;
-    }
-    &__city {
-      margin: 0px;
-      line-height: 1.43;
-      font-size: 14px;
-      opacity: 0.6;
-    }
   }
+  &__info-name {
+    margin: 0px;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: $font;
+    letter-spacing: 0.15px;
+  }
+  &__city {
+    margin: 0px;
+    line-height: 1.43;
+    font-size: 14px;
+    opacity: 0.6;
+  }
+}
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-  &__checkbox {
-    width: 18px;
-    height: 18px;
-  }
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: $default-check-color;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: $hover-check-color;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: $check-color;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 3px;
+  height: 8px;
+  border: solid $white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }

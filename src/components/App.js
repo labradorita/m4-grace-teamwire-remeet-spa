@@ -1,7 +1,7 @@
 import React from "react";
 import "../stylesheets/layouts/App.scss";
-import getDataFromServer from './getDataFromServer';
-import { Switch, Route, Link } from "react-router-dom";
+import getDataFromServer from "./getDataFromServer";
+import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
@@ -22,7 +22,6 @@ class App extends React.Component {
     this.handleDateOut = this.handleDateOut.bind(this);
     this.getPrices = this.getPrices.bind(this)
     //this.getDataFromServer = this.getDataFromServer.bind(this)
-
   }
 
   componentDidMount() {
@@ -43,9 +42,12 @@ class App extends React.Component {
     const { employees, airports } = this.state;
     debugger;
     const newEmployees = employees.map(employee => {
-      const airport = airports.find(airport => airport.code === employee.airportCode);
-      return { ...employee, airport: airport.name }
+      const airport = airports.find(
+        airport => airport.code === employee.airportCode
+      );
+      return { ...employee, airport: airport.name };
     });
+    return newEmployees;
   }
 
   //`${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`
@@ -89,9 +91,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment >
+      <React.Fragment>
         <Header />
-        <Link to="/results">Results</Link>
         <Switch>
           <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} getPrices={this.getPrices} />} />
           <Route path="/results" component={Results} />

@@ -1,52 +1,64 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import "../stylesheets/layouts/SearchParticipants.scss";
-import face from "../images/face-1.jpg";
-import face2 from "../images/face-2.png";
+import face from "../images/face.png";
 
 const SearchParticipants = () => {
   return (
-    <div className="SearchParticipants">
-      <h2 className="SearchParticipants__mainTitle">select participants</h2>
-      <section className="SearchParticipants__container">
-        <ul className="SearchParticipants__list">
-          <li className="SearchParticipants__participant">
-            <img
-              className="SearchParticipants__img"
-              src={face}
-              alt="participant face"
-            />
-            <div className="SearchParticipants__info">
-              <h4 className="SearchParticipants__info__name">Ana Phill</h4>
-              <p className="SearchParticipants__info__city">Bristol</p>
+    <div className="search-participants">
+      <h2 className="search-participants__title">select participants</h2>
+      <section className="search-participants__container">
+        <ul className="search-participants__list">
+          <li className="search-participants__participant">
+            <div className="search-participants__data">
+              <img
+                className="search-participants__image"
+                src={face}
+                alt="participant face"
+              />
+              <div className="search-participants__info">
+                <h4 className="search-participants__info-name">Ana Phill</h4>
+                <p className="search-participants__info-city">Bristol</p>
+              </div>
             </div>
-
-            <input
-              className="SearchParticipants__checkbox"
-              type="checkbox"
-              defaultChecked="checked"
-              //onChange =
-            ></input>
+            <label htmlFor="checkbox" className="container">
+              <input id="checkbox" type="checkbox" defaultChecked="checked" />
+              <span class="checkmark"></span>
+            </label>
           </li>
-        </ul>
-
-        <ul className="SearchParticipants__list">
-          <li className="SearchParticipants__participant">
-            <img
-              className="SearchParticipants__img"
-              src={face2}
-              alt="participant face"
-            />
-            <div className="SearchParticipants__info">
-              <h4 className="SearchParticipants__info__name">Roberto García</h4>
-              <p className="SearchParticipants__info__city">Madrid</p>
+          <li className="search-participants__participant">
+            <div className="search-participants__data">
+              <img
+                className="search-participants__image"
+                src={face}
+                alt="participant face"
+              />
+              <div className="search-participants__info">
+                <h4 className="search-participants__info-name">Aitor Tilla</h4>
+                <p className="search-participants__info-city">Barcelona</p>
+              </div>
             </div>
-            <input
-              className="SearchParticipants__checkbox"
-              type="checkbox"
-              defaultChecked="checked"
-              //onChange =
-            ></input>
+            <label htmlFor="checkbox" className="container">
+              <input id="checkbox" type="checkbox" defaultChecked="checked" />
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li className="search-participants__participant">
+            <div className="search-participants__data">
+              <img
+                className="search-participants__image"
+                src={face}
+                alt="participant face"
+              />
+              <div className="search-participants__info">
+                <h4 className="search-participants__info-name">Vicent Moch</h4>
+                <p className="search-participants__info-city">Berlin</p>
+              </div>
+            </div>
+            <label htmlFor="checkbox" className="container">
+              <input id="checkbox" type="checkbox" defaultChecked="checked" />
+              <span class="checkmark"></span>
+            </label>
           </li>
         </ul>
       </section>
