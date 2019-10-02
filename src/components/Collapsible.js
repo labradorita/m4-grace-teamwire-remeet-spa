@@ -19,11 +19,12 @@ class Collapsible extends React.Component {
     const arrowStyling = this.state.open ? "fa-chevron-up" : "fa-chevron-down";
     return (
       <div>
-        <div onClick={e => this.togglePanel(e)} className="search-location__title">
-        <h4 className="search-location__title">{this.props.title}</h4>
-        <i className={`fas ${arrowStyling} arrow`} />
-         
-        
+        <div
+          onClick={e => this.togglePanel(e)}
+          className="search-location__title"
+        >
+          <h4 className="search-location__title">{this.props.title}</h4>
+          <i className={`fas ${arrowStyling} arrow`} />
         </div>
         {this.state.open ? <div>{this.props.children}</div> : null}
       </div>
@@ -34,9 +35,12 @@ class Collapsible extends React.Component {
 Collapsible.propTypes = {
   togglePanel: PropTypes.func,
   open: PropTypes.bool,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   title: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
 };
 
 export default Collapsible;
