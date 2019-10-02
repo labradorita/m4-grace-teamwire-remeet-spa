@@ -1,4 +1,5 @@
 @import "../core/variables";
+@import "../index";
 
 .search-location {
   width: 476px;
@@ -62,15 +63,12 @@
   }
 }
 
-.arrow{
+.arrow {
   display: flex;
   align-items: center;
   margin-right: 40px;
-  color:grey;
-
+  color: grey;
 }
-
-
 
 .search-location::before {
   content: "";

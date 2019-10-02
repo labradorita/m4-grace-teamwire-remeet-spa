@@ -1,4 +1,6 @@
 @import "../core/variables";
+@import "../index";
+
 .search-button {
   width: 400px;
   height: 60px;
@@ -18,6 +20,26 @@
   }
 }
 
+@media all and (min-width: 1280px) {
+  .search-button {
+    width: 400px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: $cobalt-blue;
+    text-align: center;
+    margin-top: 25px;
+
+    &__button {
+      font-family: $font;
+      font-size: 14px;
+      letter-spacing: 1.25px;
+      color: $white;
+      padding: 22px;
+      background-color: $cobalt-blue;
+      border: none;
+    }
+  }
+}
 .search-button::before {
   content: "";
   position: absolute;
