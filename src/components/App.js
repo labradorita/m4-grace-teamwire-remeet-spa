@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
+import { employeesURL, officesURL, airportsURL } from "../services/config";
 
 class App extends React.Component {
   constructor(props) {
@@ -27,9 +28,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const employeesURL = "https://adalab-teamwire.herokuapp.com/employees";
-    const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
-    const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
+    // const employeesURL = "https://adalab-teamwire.herokuapp.com/employees";
+    // const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
+    // const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
 
     const apiPromises = [getDataFromServer(employeesURL), getDataFromServer(officesURL), getDataFromServer(airportsURL)];
     Promise.all(apiPromises)
@@ -40,17 +41,12 @@ class App extends React.Component {
       }))
   }
 
-  getAirportName() {
-    const { employees, airports } = this.state;
-    debugger;
-    const newEmployees = employees.map(employee => {
-      const airport = airports.find(
-        airport => airport.code === employee.airportCode
-      );
-      return { ...employee, airport: airport.name };
-    });
-    return newEmployees;
-  }
+  getAirportNameByCode = airportCode => {
+    const { airports } = this.state;
+    const airportFound = airports.find(airport => airport.code === airportCode);
+    const { name } = airportFound;
+    return name;
+  };
 
   //`${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`
   getPrices() {
@@ -119,6 +115,8 @@ class App extends React.Component {
   }
 
   render() {
+    // this.getAirportOffice();
+    const { offices, employees } = this.state;
     return (
       <React.Fragment>
         <Header />

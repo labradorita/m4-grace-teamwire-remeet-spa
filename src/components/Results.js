@@ -8,15 +8,23 @@ import ResultsMessage from "./ResultsMessage";
 
 const Results = ({ composeList }) => {
   return (
-    <React.Fragment className="results">
-      <ResultsCard />
-      <ResultsMessage />
-      <img
-        src={resultCity}
-        alt="Tu ciudad es {`city`}"
-        className="results__city-image"
-      />
-      <img src={resultBubble} alt="Remeet" className="results__bottom-image" />
+    <React.Fragment>
+      <div className="results">
+        <ResultsCard />
+        <ResultsMessage />
+        <img
+          src={resultCity}
+          alt="Tu ciudad es {`city`}"
+          className="results__city-image"
+        />
+        <div className="results__bottom-decoration">
+          <img
+            src={resultBubble}
+            alt="Remeet"
+            className="results__bottom-image"
+          />
+        </div>
+      </div>
     </React.Fragment>
   );
 };
