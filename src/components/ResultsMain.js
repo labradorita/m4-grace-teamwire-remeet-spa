@@ -33,7 +33,7 @@ const ResultsMain = () => {
               </p>
             </div>
             <div className="results-main__participants--right-column">
-              <number className="results-main__participants-price">{`000 €`}</number>
+              <p className="results-main__participants-price">{`000 €`}</p>
             </div>
           </li>
           <li className="results-main__participants-item">

@@ -1,6 +1,67 @@
 @import "../core/variables";
 @import "../index";
 
+.results-list {
+  list-style: none;
+  width: 400px;
+  height: 200px;
+  overflow: scroll;
+
+  &__item {
+    width: 100%;
+    text-decoration: none;
+    border: 0.5px solid gainsboro;
+    border-radius: 5px;
+  }
+  &__item-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item-left {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+  &__item-city {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  &__item-airport {
+    letter-spacing: 0.25px;
+    line-height: 1.43;
+    font-size: 14px;
+  }
+  &__item-right {
+    padding: 13px 22px 13px 0;
+  }
+  &__item--totalprice {
+    font-size: 12px;
+    padding: 13px 22px 16px 0;
+  }
+  &__item--total-amount {
+    font-size: 30px;
+    font-weight: 300;
+  }
+  &__button-container {
+    border-top: 0.5px solid $brown-grey;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__booking-button {
+    background-color: $cobalt-blue;
+    font-family: $font;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    line-height: 1.14;
+    border-radius: 5px;
+  }
+}
+
 @media all and (min-width: 1280px) {
   .results-list {
     list-style: none;

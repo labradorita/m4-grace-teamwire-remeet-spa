@@ -1,6 +1,107 @@
 @import "../core/variables";
 @import "../index";
 
+.results-main {
+  width: 400px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  margin-bottom: 15px;
+
+  &__image {
+    width: 398px;
+    border-radius: 5px 5px 0 0;
+    background-size: cover;
+  }
+  &__booking-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__city-airport-price {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  &__city {
+    color: $cobalt-blue;
+    font-size: 24px;
+    font-weight: 450;
+    margin: 10px 0 6px 16px;
+  }
+  &__airport {
+    font-size: 14px;
+    letter-spacing: 0.25px;
+    margin: 0 0 16px 16px;
+  }
+  &__price {
+    font-size: 60px;
+    font-weight: 300;
+    margin: 0 0 6px 15px;
+  }
+  &__book-column {
+    display: flex;
+    flex-direction: column;
+  }
+  &__book-button {
+    background-color: $cobalt-blue;
+    font-size: 14px;
+    font-weight: 500px;
+    letter-spacing: 1.25px;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    line-height: 1.14;
+    border-radius: 5px;
+    margin: 10px 21px 45px 0;
+  }
+  &__total-price {
+    font-size: 12px;
+    margin: 0;
+  }
+  &__participants-info {
+    overflow: hidden;
+  }
+  &__participants-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__participants-item {
+    padding: 10px 16px 10px 16px;
+    border-top: 0.5px solid gainsboro;
+    border-radius: 1px;
+    height: 72px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__participants--left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  &__participants-number {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  &__participants-location {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 0 24px;
+  }
+  &__participants--right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+  }
+  &__participants-price {
+    font-size: 20px;
+  }
+}
+
 @media all and (min-width: 1280px) {
   .results-main {
     width: 400px;

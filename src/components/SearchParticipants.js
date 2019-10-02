@@ -23,7 +23,7 @@ const SearchParticipants = () => {
             </div>
             <label htmlFor="checkbox" className="container">
               <input id="checkbox" type="checkbox" defaultChecked="checked" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
           </li>
           <li className="search-participants__participant">
@@ -40,7 +40,7 @@ const SearchParticipants = () => {
             </div>
             <label htmlFor="checkbox" className="container">
               <input id="checkbox" type="checkbox" defaultChecked="checked" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
           </li>
           <li className="search-participants__participant">
@@ -57,7 +57,7 @@ const SearchParticipants = () => {
             </div>
             <label htmlFor="checkbox" className="container">
               <input id="checkbox" type="checkbox" defaultChecked="checked" />
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
             </label>
           </li>
         </ul>
