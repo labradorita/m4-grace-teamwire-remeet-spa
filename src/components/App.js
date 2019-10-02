@@ -115,13 +115,12 @@ class App extends React.Component {
   }
 
   render() {
-    // this.getAirportOffice();
-    const { offices, employees } = this.state;
+    const { offices, employees } = this.state
     return (
       <React.Fragment>
         <Header />
         <Switch>
-          <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} getPrices={this.getPrices} />} />
+          <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} getPrices={this.getPrices} offices={offices} employees={employees} getAirportNameByCode={this.getAirportNameByCode} />} />
           <Route path="/results" render={props => <Results composeList={this.state.composeList} />} />
         </Switch>
       </React.Fragment >
