@@ -34,6 +34,7 @@
     position: absolute;
     right: 150px;
     top: 150px;
+    z-index: -1;
   }
 }
 
@@ -44,5 +45,6 @@
     z-index: -1;
     right: 0px;
     bottom: 0px;
+    z-index: -2;
   }
 }

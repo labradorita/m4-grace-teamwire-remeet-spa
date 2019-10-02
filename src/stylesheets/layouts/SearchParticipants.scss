@@ -15,10 +15,12 @@
     letter-spacing: 0.25px;
   }
   &__container {
-    overflow-y: scroll;
-    overflow-x: hidden;
+    // overflow-y: scroll;
+    // overflow-x: hidden;
   }
   &__list {
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 400px;
   }
   &__data {
@@ -75,10 +77,12 @@
       letter-spacing: 0.25px;
     }
     &__container {
-      overflow-y: scroll;
-      overflow-x: hidden;
+      // overflow-y: scroll;
+      // overflow-x: hidden;
     }
     &__list {
+      overflow-y: scroll;
+      overflow-x: hidden;
       width: 400px;
     }
     &__data {
