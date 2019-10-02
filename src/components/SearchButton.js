@@ -5,14 +5,12 @@ import "../stylesheets/layouts/SearchButton.scss";
 
 const SearchButton = () => {
   return (
-    <div className="SearchButton">
-      {/* <div className="SearchButton__container"> */}
+    <div className="search-button">
       <Link to="/results">
-        <button className="SearchButton__button">
-          <strong>search</strong>
+        <button className="search-button__button">
+          <strong>SEARCH</strong>
         </button>
       </Link>
-      {/* </div> */}
     </div>
   );
 };
