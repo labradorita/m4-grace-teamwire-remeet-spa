@@ -4,34 +4,31 @@
   width: 480px;
   height: auto;
   scroll-margin-right: true;
- 
-  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
-    0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
-  border-radius: 2px;
+  position: relative;
+
+
   &__main {
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-content: center;
     border-bottom: 1px solid lightgrey;
- 
   }
 
   &__title {
     height: 60px;
     display: flex;
     align-items: center;
-    padding-left: 70px;
+    padding-left: 72px;
     font-family: $font;
-    font-size: 14px;
+    font-size: px;
     line-height: 1.43px;
     letter-spacing: 0.25px;
     color: $cobalt-blue;
   }
   &__container {
-    overflow-y:scroll;
-    overflow-x:hidden;
-   
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   &__list {
     list-style: none;
@@ -39,21 +36,17 @@
     display: flex;
     justify-content: space-between;
     padding-left: 86px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid lightgrey;
-   
-    padding: 23px 0px 9px 80px;
     &__element {
-     
+      height: 62px;
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid lightgrey;
     }
     &__city {
       font-family: $font;
       font-size: 16px;
-      line-height: 1.5px;
-      letter-spacing: 0.15px;
       color: rgba(0, 0, 0, 0.87);
     }
     &__airport {
@@ -62,7 +55,7 @@
       color: rgba(0, 0, 0, 0.6);
     }
     &__icon {
-      margin-right: 59px;
+      margin-right: 39px;
       color: rgba(0, 0, 0, 0.54);
       transform: rotate(270deg);
     }
@@ -70,6 +63,20 @@
 }
 
 .fa-chevron-up {
-  padding: 45px 42px;
-  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.searchlocation::before {
+  content: "";
+  position: absolute;
+  height: 6px;
+  top: -6px;
+  width: 100%;
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
