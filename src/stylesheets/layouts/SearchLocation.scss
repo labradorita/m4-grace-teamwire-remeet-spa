@@ -32,10 +32,8 @@
   }
   &__list {
     list-style: none;
-    height: 62px;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 86px;
+    padding-left: 80px;
+    margin-right: 40px;
     &__element {
       height: 62px;
       width: 100%;
@@ -43,7 +41,6 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid lightgrey;
-      margin-right: 30px;
     }
     &__city {
       font-family: $font;
@@ -56,7 +53,7 @@
       color: rgba(0, 0, 0, 0.6);
     }
     &__icon {
-      margin-right: 39px;
+      margin-right: 15px;
       color: rgba(0, 0, 0, 0.54);
       transform: rotate(270deg);
     }

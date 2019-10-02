@@ -34,8 +34,8 @@ const SearchParticipants = () => {
                 alt="participant face"
               />
               <div className="search-participants__info">
-                <h4 className="search-participants__info-name">Ana Phill</h4>
-                <p className="search-participants__info-city">Bristol</p>
+                <h4 className="search-participants__info-name">Aitor Tilla</h4>
+                <p className="search-participants__info-city">Barcelona</p>
               </div>
             </div>
             <label htmlFor="checkbox" className="container">
@@ -51,8 +51,8 @@ const SearchParticipants = () => {
                 alt="participant face"
               />
               <div className="search-participants__info">
-                <h4 className="search-participants__info-name">Ana Phill</h4>
-                <p className="search-participants__info-city">Bristol</p>
+                <h4 className="search-participants__info-name">Vicent Moch</h4>
+                <p className="search-participants__info-city">Berlin</p>
               </div>
             </div>
             <label htmlFor="checkbox" className="container">
