@@ -5,6 +5,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
+import { promises } from "dns";
 
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
+    this.getPrices = this.getPrices.bind(this)
     //this.getDataFromServer = this.getDataFromServer.bind(this)
 
   }
@@ -29,20 +31,13 @@ class App extends React.Component {
     const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
     const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
 
-    getDataFromServer(employeesURL)
-      .then(employees => this.setState({
-        employees: employees,
-      }));
-
-    getDataFromServer(officesURL)
-      .then(offices => this.setState({
-        offices: offices,
-      }));
-
-    getDataFromServer(airportsURL)
-      .then(airports => this.setState({
-        airports: airports,
-      }))
+    const apiPromises = [getDataFromServer(employeesURL), getDataFromServer(officesURL), getDataFromServer(airportsURL)];
+    Promise.all(apiPromises)
+      .then(results => this.setState({
+        employees: results[0],
+        offices: results[1],
+        airports: results[2],
+      }, () => console.log(this.state)))
   }
 
   getAirportName() {
@@ -52,6 +47,42 @@ class App extends React.Component {
       const airport = airports.find(airport => airport.code === employee.airportCode);
       return { ...employee, airport: airport.name }
     });
+  }
+
+  getPrices2() {
+    const { employees, offices, airports } = this.state // Cambiar por participants
+    const allAirports = employees.map(employee => employee.airportCode);
+    const airportsFrom = [... new set(allAirports)] // para evitar aeropuertos repetidos
+    const allPromises = [];
+    for (let office of offices) {
+      const allPromises = [];
+      for (let office of offices) {
+        const promisesOffice = [];
+        for (let airport of airports) {
+          promisesOffice.push(fetch)
+        }
+      }
+    }
+  }
+
+  getPrices() {
+    const { airports, offices } = this.state
+    for (let airport of airports) {
+      const url = "https://adalab-teamwire.herokuapp.com"
+      for (let office of offices) {
+        let airportTo = office.airportCode
+        const airportFrom = airport.code;
+        const pricesURL = `${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`
+        if (airportTo !== airportFrom) {
+          return fetch(pricesURL)
+        }
+        console.log("airportTO : " + airportTo, "airportFrom: " + airportFrom + "pricesURL : " + pricesURL)
+      }
+
+      //return pricePromises = {fecth()}
+    }
+
+    //const pricePromises = { fecth() }
   }
 
 
@@ -73,26 +104,14 @@ class App extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <React.Fragment >
         <Header />
         <Link to="/results">Results</Link>
         <Switch>
-          <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} />} />
+          <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} getPrices={this.getPrices} />} />
           <Route path="/results" component={Results} />
         </Switch>
       </React.Fragment >
-=======
-      <React.Fragment>
-        <div className="app">
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/results" component={Results} />
-          </Switch>
-        </div>
-      </React.Fragment>
->>>>>>> dev
     );
   }
 }

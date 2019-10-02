@@ -3,12 +3,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../stylesheets/layouts/SearchButton.scss";
 
-const SearchButton = () => {
+const SearchButton = ({ getPrices }) => {
   return (
     <div className="SearchButton">
       <div className="SearchButton__container">
         <Link to="/results">
-          <button className="SearchButton__button">
+          <button className="SearchButton__button" onClick={getPrices}>
             <strong>search </strong>
           </button>
         </Link>

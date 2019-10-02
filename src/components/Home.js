@@ -12,7 +12,7 @@ const Home = (props) => {
       <React.Fragment>
         <SearchParticipants />
         <SearchLocation />
-        <SearchButton />;
+        <SearchButton getPrices={props.getPrices} />;
       </React.Fragment>
     </div>
   );
