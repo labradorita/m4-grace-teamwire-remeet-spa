@@ -18,13 +18,15 @@
   &__title {
     height: 60px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     font-family: $font;
-    font-size: px;
+    font-size: 14px;
     line-height: 1.43px;
     letter-spacing: 0.25px;
     color: $cobalt-blue;
-    margin-left: 40px;
+    margin-left: 20px;
+    font-weight: 500;
   }
   &__container {
     overflow-y: scroll;
@@ -63,11 +65,15 @@
   }
 }
 
-.fa-chevron-up {
+.arrow{
   display: flex;
   align-items: center;
   margin-right: 40px;
+  color:grey;
+
 }
+
+
 
 .search-location::before {
   content: "";

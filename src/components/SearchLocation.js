@@ -1,13 +1,13 @@
 import React from "react";
 import "../stylesheets/layouts/SearchLocation.scss";
+import Collapsible from "./Collapsible";
 
 const SearchLocation = () => {
   return (
     <div className="search-location">
-      <div className="search-location__main">
-        <p className="search-location__title">Meeting Point Availables</p>
-        <i className="fas fa-chevron-up" />
-      </div>
+      
+      <Collapsible title="Meeting Point Availables" arrow="fas fas fa-chevron-up arrow">
+     
       <div className="search-location__container">
         <ul className="search-location__list">
           <li className="search-location__list__element">
@@ -43,6 +43,7 @@ const SearchLocation = () => {
           </li>
         </ul>
       </div>
+      </Collapsible>
     </div>
   );
 };
