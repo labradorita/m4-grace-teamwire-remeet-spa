@@ -5,8 +5,6 @@ import { Switch, Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
-import { promises } from "dns";
-
 
 class App extends React.Component {
   constructor(props) {
@@ -15,9 +13,10 @@ class App extends React.Component {
       employees: [],
       offices: [],
       airports: [],
-      dateIn: "", // AAAA-MM-DD
-      dateOut: "", // AAAA-MM-DD
+      dateIn: "2019-10-18", // AAAA-MM-DD
+      dateOut: "2019-10-23", // AAAA-MM-DD
       participants: [],
+      composeList: [],
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
@@ -37,7 +36,7 @@ class App extends React.Component {
         employees: results[0],
         offices: results[1],
         airports: results[2],
-      }, () => console.log(this.state)))
+      }))
   }
 
   getAirportName() {
@@ -49,40 +48,26 @@ class App extends React.Component {
     });
   }
 
-  getPrices2() {
-    const { employees, offices, airports } = this.state // Cambiar por participants
-    const allAirports = employees.map(employee => employee.airportCode);
-    const airportsFrom = [... new set(allAirports)] // para evitar aeropuertos repetidos
-    const allPromises = [];
-    for (let office of offices) {
-      const allPromises = [];
-      for (let office of offices) {
-        const promisesOffice = [];
-        for (let airport of airports) {
-          promisesOffice.push(fetch)
-        }
-      }
-    }
-  }
-
+  //`${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`
   getPrices() {
-    const { airports, offices } = this.state
-    for (let airport of airports) {
-      const url = "https://adalab-teamwire.herokuapp.com"
-      for (let office of offices) {
-        let airportTo = office.airportCode
-        const airportFrom = airport.code;
-        const pricesURL = `${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`
-        if (airportTo !== airportFrom) {
-          return fetch(pricesURL)
-        }
-        console.log("airportTO : " + airportTo, "airportFrom: " + airportFrom + "pricesURL : " + pricesURL)
+    const { employees, offices, dateIn, dateOut } = this.state; // Cambiar por participants
+    const url = "https://adalab-teamwire.herokuapp.com";
+    const allAirports = employees.map(employee => employee.airportCode);
+    const airportsFrom = [...new Set(allAirports)]; // para evitar aeropuertos repetidos
+    const allResults = [];
+    for (let office of offices) {
+      const fromOffice = office.airportCode;
+      const promisesOffice = [];
+      for (let airport of airportsFrom) {
+        promisesOffice.push(getDataFromServer(`${url}/flights/price/from/${airport}/to/${fromOffice}/${dateOut}/${dateIn}`)
+        );
       }
-
-      //return pricePromises = {fecth()}
+      allResults.push(Promise.all(promisesOffice)); //Promise.all
     }
-
-    //const pricePromises = { fecth() }
+    Promise.all(allResults)
+      .then(data => this.setState({
+        composeList: data,
+      }))
   }
 
 
