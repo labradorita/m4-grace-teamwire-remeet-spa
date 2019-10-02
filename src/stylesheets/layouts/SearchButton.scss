@@ -1,24 +1,19 @@
 @import "../core/variables";
-.SearchButton {
-  display: flex;
-  width: 480px;
-  height: 120px;
-  justify-content: center;
-  align-items: center;
+.search-button {
+  width: 400px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: $cobalt-blue;
+  text-align: center;
+  margin-top: 25px;
 
   &__button {
-    width: 400px;
-    height: 60px;
-    text-transform: uppercase;
-    background-color: $cobalt-blue;
-    color: $white;
-    border-radius: 5px;
+    font-family: $font;
     font-size: 14px;
-    line-height: 1.14;
     letter-spacing: 1.25px;
-    outline: none;
-    border: 0;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
-      0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+    color: $white;
+    padding: 22px;
+    background-color: $cobalt-blue;
+    border: none;
   }
 }

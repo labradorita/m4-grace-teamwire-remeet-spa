@@ -1,11 +1,11 @@
 @import "../core/variables";
 
 .searchlocation {
-  width: 480px;
+  width: 400px;
   height: auto;
   scroll-margin-right: true;
   position: relative;
-
+  background-color: $white;
 
   &__main {
     height: 60px;
