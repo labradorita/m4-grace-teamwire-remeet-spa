@@ -21,15 +21,11 @@ const SearchParticipants = () => {
                 <p className="SearchParticipants__info__city">Bristol</p>
               </div>
             </div>
-
             <label htmlFor="checkbox" className="container">
               <input id="checkbox" type="checkbox" defaultChecked="checked" />
               <span class="checkmark"></span>
             </label>
           </li>
-        </ul>
-
-        <ul className="SearchParticipants__list">
           <li className="SearchParticipants__participant">
             <div className="SearchParticipants__data">
               <img
