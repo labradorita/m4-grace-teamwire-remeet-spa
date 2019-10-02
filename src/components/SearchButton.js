@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../stylesheets/layouts/SearchButton.scss";
 
-const SearchButton = () => {
+const SearchButton = ({ getPrices }) => {
   return (
     <div className="search-button">
       <Link to="/results">
