@@ -5,7 +5,7 @@ import SearchButton from "./SearchButton";
 import SearchParticipants from "./SearchParticipants";
 
 const Home = (props) => {
-  const { employees = props}
+  const { employees, airports = props}
   return (
     <div className="App">
       <SearchDate
@@ -13,8 +13,8 @@ const Home = (props) => {
       // handleDateOut={this.handleDateOut}
       />
       <React.Fragment>
-        <SearchParticipants employees={employees}/>
-        <SearchLocation />
+        <SearchParticipants employees={employees} />
+        <SearchLocation airports={airports} />
         <SearchButton />;
       </React.Fragment>
     </div>

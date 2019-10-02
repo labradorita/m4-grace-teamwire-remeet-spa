@@ -63,7 +63,7 @@ class App extends React.Component {
     });
   }
   render() {
-    const { employees } = this.state;
+    const { employees, airports } = this.state;
     console.log(this.state);
     return (
       <React.Fragment>
@@ -73,7 +73,7 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={() => <Home employees={this.employees} />}
+            render={() => <Home employees={employees} airports={airports} />}
           />
           <Route path="/results" component={Results} />
         </Switch>
