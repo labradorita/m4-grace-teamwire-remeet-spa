@@ -1,12 +1,12 @@
 @import "../core/variables";
+@import "../index";
 .home__image {
   //height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   z-index: -1;
   right: 0px;
   bottom: 0px;
-  top: 150px;
 }
 .home__title {
   text-transform: capitalize;
@@ -17,6 +17,6 @@
   width: 450px;
   text-align: center;
   position: absolute;
-  right: 200px;
+  right: 300px;
   top: 150px;
 }

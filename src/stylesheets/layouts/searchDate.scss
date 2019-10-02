@@ -24,6 +24,7 @@ input[type="date"]:valid::before {
 
 .search-date {
   width: 400px;
+  margin-top: 0px;
 
   &__title {
     color: $cobalt-blue;
