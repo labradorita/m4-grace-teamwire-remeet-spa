@@ -1,6 +1,8 @@
 import React from "react";
-import "../stylesheets/layouts/Results.scss";
 import ResultsCard from "./ResultsCard";
+import "../stylesheets/layouts/Results.scss";
+import resultCity from "../images/result-city.png";
+import resultBubble from "../images/bubble.png";
 
 import ResultsMessage from "./ResultsMessage";
 
@@ -10,6 +12,18 @@ const Results = () => {
       <div className="results">
         <ResultsCard />
         <ResultsMessage />
+        <img
+          src={resultCity}
+          alt="Tu ciudad es {`city`}"
+          className="results__city-image"
+        />
+        <div className="results__bottom-decoration">
+          <img
+            src={resultBubble}
+            alt="Remeet"
+            className="results__bottom-image"
+          />
+        </div>
       </div>
     </React.Fragment>
   );

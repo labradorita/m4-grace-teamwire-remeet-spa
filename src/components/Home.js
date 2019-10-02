@@ -1,21 +1,28 @@
 import React from "react";
-import SearchLocation from "./SearchLocation";
-import SearchDate from "./SearchDate";
-import SearchButton from "./SearchButton";
-import SearchParticipants from "./SearchParticipants";
+import SearchCard from "./SearchCard";
+import homeImage from "../images/Illustration.png";
+import "../stylesheets/layouts/Home.scss";
 
-const Home = (props) => {
-  return (
-    <div className="App">
-      <SearchDate handleDateIn={props.handleDateIn} handleDateOut={props.handleDateOut}
+const Home = ({
+  offices,
+  employees,
+  getAirportNameByCode,
+  handleDateIn,
+  handleDateOut
+}) => (
+  <div className="App">
+    <React.Fragment>
+      <SearchCard
+        offices={offices}
+        employees={employees}
+        getAirportNameByCode={getAirportNameByCode}
+        handleDateOut={handleDateOut}
+        handleDateIn={handleDateIn}
       />
-      <React.Fragment>
-        <SearchParticipants />
-        <SearchLocation />
-        <SearchButton />;
-      </React.Fragment>
-    </div>
-  );
-};
+      <div className="home__title">remote meeting calculator</div>
+      <img src={homeImage} alt="map illustration" className="home__image" />
+    </React.Fragment>
+  </div>
+);
 
 export default Home;

@@ -1,33 +1,34 @@
 import React from "react";
-import "../stylesheets/SearchLocation.scss";
+import "../stylesheets/layouts/SearchLocation.scss";
+import Collapsible from "./Collapsible";
 
-const SearchLocation = () => {
+const SearchLocation = props => {
+  const { offices, getAirportNameByCode } = props;
+
   return (
-    <div className="searchlocation">
-      <p className="searchlocation__title">Meeting Point Availables</p>
-      <div>
-        <i className="fas fa-chevron-up" />
-      </div>
-      <div className="searchlocation__container">
-        <ul className="searchlocation__list">
-          <li>
-            <h4 className="searchlocation__city">Munich</h4>
-            <p className="searchlocation__airport">Munchen Airport</p>
-          </li>
-        </ul>
-        <ul className="searchlocation__list">
-          <li>
-            <h4 className="searchlocation__city">Madrid</h4>
-            <p className="searchlocation__airport">Adolfo Suarez</p>
-          </li>
-        </ul>
-        <ul className="searchlocation__list">
-          <li>
-            <h4 className="searchlocation__city">London</h4>
-            <p className="searchlocation__airport">Gatwick Airport</p>
-          </li>
-        </ul>
-      </div>
+    <div className="search-location">
+      <Collapsible
+        title="Meeting Point Availables"
+        arrow="fas fas fa-chevron-up arrow"
+      >
+        <div className="search-location__container">
+          <ul className="search-location__list">
+            {offices.map(office => (
+              <li key={office.name} className="search-location__list__element">
+                <div>
+                  <h4 className="search-location__list__city">{office.name}</h4>
+                  <p className="search-location__list__airport">
+                    {getAirportNameByCode(office.airportCode)}
+                  </p>
+                </div>
+                <div className="search-location__list__icon">
+                  <i className="fas fa-plane"></i>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Collapsible>
     </div>
   );
 };

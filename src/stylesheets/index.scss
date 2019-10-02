@@ -1,6 +1,8 @@
-@import 'core/variables.scss';
-body {
+@import "core/variables.scss";
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: $font;
 }
