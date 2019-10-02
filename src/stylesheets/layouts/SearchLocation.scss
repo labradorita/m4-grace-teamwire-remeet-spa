@@ -1,61 +1,64 @@
 @import "../core/variables";
+@import "../index";
 
-.search-location {
-  width: 476px;
-  height: auto;
-  scroll-margin-right: true;
-  position: relative;
-  background-color: $white;
+@media all and (min-width: 1280px) {
+  .search-location {
+    width: 476px;
+    height: auto;
+    scroll-margin-right: true;
+    position: relative;
+    background-color: $white;
 
-  &__main {
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    border-bottom: 1px solid lightgrey;
-  }
-
-  &__title {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    font-family: $font;
-    font-size: px;
-    line-height: 1.43px;
-    letter-spacing: 0.25px;
-    color: $cobalt-blue;
-    margin-left: 40px;
-  }
-  &__container {
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  &__list {
-    list-style: none;
-    padding-left: 80px;
-    margin-right: 40px;
-    &__element {
-      height: 62px;
-      width: 100%;
+    &__main {
+      height: 60px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-content: center;
       border-bottom: 1px solid lightgrey;
     }
-    &__city {
+
+    &__title {
+      height: 60px;
+      display: flex;
+      align-items: center;
       font-family: $font;
-      font-size: 16px;
-      color: rgba(0, 0, 0, 0.87);
+      font-size: px;
+      line-height: 1.43px;
+      letter-spacing: 0.25px;
+      color: $cobalt-blue;
+      margin-left: 40px;
     }
-    &__airport {
-      font-family: $font;
-      font-size: 14px;
-      color: rgba(0, 0, 0, 0.6);
+    &__container {
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
-    &__icon {
-      margin-right: 15px;
-      color: rgba(0, 0, 0, 0.54);
-      transform: rotate(270deg);
+    &__list {
+      list-style: none;
+      padding-left: 80px;
+      margin-right: 40px;
+      &__element {
+        height: 62px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid lightgrey;
+      }
+      &__city {
+        font-family: $font;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.87);
+      }
+      &__airport {
+        font-family: $font;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+      &__icon {
+        margin-right: 15px;
+        color: rgba(0, 0, 0, 0.54);
+        transform: rotate(270deg);
+      }
     }
   }
 }

@@ -1,16 +1,19 @@
 @import "../core/variables";
+@import "../index";
 
-.return-button {
-  width: 400px;
-  height: 60px;
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 5px;
-  background-color: $white;
-  font-family: $font;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 1.25px;
-  color: $cobalt-blue;
-  text-align: center;
-  margin-top: 15px;
+@media all and (min-width: 1280px) {
+  .return-button {
+    width: 400px;
+    height: 60px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+    background-color: $white;
+    font-family: $font;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    color: $cobalt-blue;
+    text-align: center;
+    margin-top: 15px;
+  }
 }
