@@ -21,6 +21,8 @@ class App extends React.Component {
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
     this.getPrices = this.getPrices.bind(this)
+    this.sortedList = this.sortedList.bind(this)
+
     //this.getDataFromServer = this.getDataFromServer.bind(this)
   }
 
@@ -67,12 +69,39 @@ class App extends React.Component {
       allResults.push(Promise.all(promisesOffice)); //Promise.all
     }
     Promise.all(allResults)
-      .then(data => this.setState({
-        composeList: data,
-      }))
+      .then(data => this.sortedList(data))
   }
 
+  sortedList(data) {
+    // { }
+    const { employees } = this.state;
+    const rawArray = []
+    for (let resultsByAirportTo of data) {
+      const participantsResume = []
+      const airportTo = resultsByAirportTo[0].airportTo.code;
+      let totalToAirport = 0;
+      for (let singleResultAirportFromAirpotTo of resultsByAirportTo) {
+        const numParticipatsFrom = employees.filter(employee => employee.airportCode === singleResultAirportFromAirpotTo.airportFrom.code).length
+        const price = singleResultAirportFromAirpotTo.airportFrom.code !== singleResultAirportFromAirpotTo.airportTo.code ? singleResultAirportFromAirpotTo.avgPrice : 0;
+        const totalByAirportFrom = numParticipatsFrom * price;
+        totalToAirport += totalByAirportFrom;
+        const participantsFrom = {
+          count: numParticipatsFrom,
+          singlePrice: price,
+          airportFrom: singleResultAirportFromAirpotTo.airportFrom.code
+        }
+        participantsResume.push(participantsFrom)
 
+
+      }
+      rawArray.push({ totalToAirport, airportTo, participantsResume })
+    }
+    const sortedArray = rawArray.sort((airportToPrev, airportToNext) => airportToPrev.totalToAirport < airportToNext.totalToAirport)
+    //return sortedArray;
+    this.setState({
+      composeList: sortedArray
+    }, () => console.log(sortedArray))
+  }
 
   handleDateIn(ev) {
     console.log(ev.target.value);
@@ -95,7 +124,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" render={props => <Home handleDateIn={this.handleDateIn} handleDateOut={this.handleDateOut} getPrices={this.getPrices} />} />
-          <Route path="/results" component={Results} />
+          <Route path="/results" render={props => <Results composeList={this.state.composeList} />} />
         </Switch>
       </React.Fragment >
     );
