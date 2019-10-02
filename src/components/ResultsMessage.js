@@ -1,5 +1,6 @@
 import React from "react";
-import "../stylesheets/components/ResultsMessage.scss";
+import "../stylesheets/layouts/ResultsMessage.scss";
+import madridCircle from "../images/madrid-circle.jpg";
 
 const ResultsMessage = () => {
   return (
@@ -8,7 +9,7 @@ const ResultsMessage = () => {
       <p className="results-message__city">{`Madrid`}</p>
       <div className="results-message__image-container">
         <img
-          src={`https://cdn.civitatis.com/espana/madrid/guia/madrid.jpg`}
+          src={madridCircle}
           alt="Madrid, Edificio Metrópolis"
           className="results-message__image"
         />

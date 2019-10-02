@@ -2,16 +2,16 @@ import React from "react";
 
 const InputSearchDate = props => {
   return (
-    <span className="search__date--wrapper">
+    <span className="search-date__wrapper">
       <input
         type="date"
         name={`input${props.type}`}
-        className="search__date--item"
+        className="search-date__item"
         placeholder="start Date"
         defaultValue={props.min}
         onChange={props.handleDate}
       />{" "}
-      <i className="far fa-clock search__date--iclock"></i>
+      <i className="far fa-clock search-date__iclock"></i>
     </span>
   );
 };

@@ -1,8 +1,7 @@
 import React from "react";
-import SearchLocation from "./SearchLocation";
-import SearchDate from "./SearchDate";
-import SearchButton from "./SearchButton";
-import SearchParticipants from "./SearchParticipants";
+import SearchCard from "./SearchCard";
+import homeImage from "../images/Illustration.png";
+import "../stylesheets/layouts/Home.scss";
 
 const Home = ({
   offices,
@@ -12,17 +11,16 @@ const Home = ({
   handleDateOut
 }) => (
   <div className="App">
-    <SearchDate handleDateIn={handleDateIn} handleDateOut={handleDateOut} />
     <React.Fragment>
-      <SearchParticipants
+      <SearchCard
+        offices={offices}
         employees={employees}
         getAirportNameByCode={getAirportNameByCode}
+        handleDateOut={handleDateOut}
+        handleDateIn={handleDateIn}
       />
-      <SearchLocation
-        offices={offices}
-        getAirportNameByCode={getAirportNameByCode}
-      />
-      <SearchButton />;
+      <div className="home__title">remote meeting calculator</div>
+      <img src={homeImage} alt="map illustration" className="home__image" />
     </React.Fragment>
   </div>
 );

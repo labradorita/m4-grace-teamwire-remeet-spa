@@ -1,8 +1,7 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import "../stylesheets/layouts/SearchParticipants.scss";
-import face from "../images/face-1.jpg";
-import face2 from "../images/face-2.png";
+import face from "../images/face.png";
 
 const SearchParticipants = props => {
   const { employees, getAirportNameByCode } = props;

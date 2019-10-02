@@ -1,14 +1,15 @@
 @import "../core/variables";
+@import "../index";
 
-.searchlocation {
-  width: 480px;
+.search-location {
+  width: 476px;
   height: auto;
   scroll-margin-right: true;
-  margin: 80px;
-  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
-    0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
-  border-radius: 2px;
+  position: relative;
+  background-color: $white;
+
   &__main {
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -16,37 +17,37 @@
   }
 
   &__title {
+    height: 60px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding-left: 41px;
     font-family: $font;
     font-size: 14px;
     line-height: 1.43px;
     letter-spacing: 0.25px;
     color: $cobalt-blue;
+    margin-left: 20px;
+    font-weight: 500;
   }
   &__container {
-    overflow-y:scroll;
-    overflow-x:hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   &__list {
     list-style: none;
-    height: 62px;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 10px;
-    border-bottom: 1px solid lightgrey;
-    padding: 10px 0px 10px 56px;
+    padding-left: 80px;
+    margin-right: 40px;
     &__element {
+      height: 62px;
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid lightgrey;
     }
     &__city {
       font-family: $font;
       font-size: 16px;
-      line-height: 1.5px;
-      letter-spacing: 0.15px;
       color: rgba(0, 0, 0, 0.87);
     }
     &__airport {
@@ -55,12 +56,29 @@
       color: rgba(0, 0, 0, 0.6);
     }
     &__icon {
+      margin-right: 15px;
       color: rgba(0, 0, 0, 0.54);
       transform: rotate(270deg);
     }
   }
 }
 
-.fa-chevron-up {
-  padding: 45px;
+.arrow {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+  color: grey;
+}
+
+.search-location::before {
+  content: "";
+  position: absolute;
+  height: 6px;
+  top: -6px;
+  width: 100%;
+  background-image: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
