@@ -1,7 +1,7 @@
 @import "../core/variables";
 
-.searchlocation {
-  width: 400px;
+.search-location {
+  width: 476px;
   height: auto;
   scroll-margin-right: true;
   position: relative;
@@ -19,12 +19,12 @@
     height: 60px;
     display: flex;
     align-items: center;
-    padding-left: 72px;
     font-family: $font;
     font-size: px;
     line-height: 1.43px;
     letter-spacing: 0.25px;
     color: $cobalt-blue;
+    margin-left: 40px;
   }
   &__container {
     overflow-y: scroll;
@@ -43,6 +43,7 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid lightgrey;
+      margin-right: 30px;
     }
     &__city {
       font-family: $font;
@@ -68,7 +69,7 @@
   margin-right: 40px;
 }
 
-.searchlocation::before {
+.search-location::before {
   content: "";
   position: absolute;
   height: 6px;
