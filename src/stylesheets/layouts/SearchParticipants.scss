@@ -1,20 +1,24 @@
 @import "../core/variables";
-.SearchParticipants {
-  width: 480px;
-  height: 600px;
+.search-participants {
+  width: 400px;
+  height: auto;
+  background-color: $white;
 
-  &__mainTitle {
+  &__title {
+    margin: 20px 0 15px 0;
     text-transform: capitalize;
     color: $cobalt-blue;
-    font-size: $size-section-title;
+    font-size: 20px;
+    font-weight: 500;
     letter-spacing: 0.25px;
   }
-  &__container {
-    overflow-y: scroll;
-
-    border: 2px solid grey;
-  }
+  // &__container {
+  //   overflow-y: scroll;
+  //   overflow-x: hidden;
+  // }
   &__list {
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 400px;
   }
   &__data {
@@ -23,38 +27,38 @@
   }
 
   &__participant {
+    height: 67px;
+    margin-left: 40px;
+    margin-right: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgrey;
+    letter-spacing: 0.15px;
   }
-  &__img {
+  &__image {
     width: 40px;
     height: 40px;
     border-radius: 50%;
   }
   &__info {
     padding-left: 10px;
-    &__name {
-      margin: 0px;
-      line-height: 1.5;
-      font-size: 16px;
-    }
-    &__city {
-      margin: 0px;
-      line-height: 1.43;
-      font-size: 14px;
-      opacity: 0.6;
-    }
   }
-
-  &__checkbox {
-    width: 18px;
-    height: 18px;
+  &__info-name {
+    margin: 0px;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: $font;
+    letter-spacing: 0.15px;
+  }
+  &__city {
+    margin: 0px;
+    line-height: 1.43;
+    font-size: 14px;
+    opacity: 0.6;
   }
 }
-
 /* Customize the label (the container) */
 .container {
   display: block;
