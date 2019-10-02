@@ -18,35 +18,35 @@
   }
 }
 
-@media all and (min-width: 1280px) {
-  .search-button {
-    width: 400px;
-    height: 60px;
-    border-radius: 5px;
-    background-color: $cobalt-blue;
-    text-align: center;
-    margin-top: 25px;
+// @media all and (min-width: 1280px) {
+//   .search-button {
+//     width: 400px;
+//     height: 60px;
+//     border-radius: 5px;
+//     background-color: $cobalt-blue;
+//     text-align: center;
+//     margin-top: 25px;
 
-    &__button {
-      font-family: $font;
-      font-size: 14px;
-      letter-spacing: 1.25px;
-      color: $white;
-      padding: 22px;
-      background-color: $cobalt-blue;
-      border: none;
-    }
-  }
-}
-.search-button::before {
-  content: "";
-  position: absolute;
-  height: 6px;
-  top: -6px;
-  width: 100%;
-  background-image: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.12) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
+//     &__button {
+//       font-family: $font;
+//       font-size: 14px;
+//       letter-spacing: 1.25px;
+//       color: $white;
+//       padding: 22px;
+//       background-color: $cobalt-blue;
+//       border: none;
+//     }
+//   }
+// }
+// .search-button::before {
+//   content: "";
+//   position: absolute;
+//   height: 6px;
+//   top: -6px;
+//   width: 100%;
+//   background-image: linear-gradient(
+//     0deg,
+//     rgba(0, 0, 0, 0.12) 0%,
+//     rgba(255, 255, 255, 0) 100%
+//   );
+// }

@@ -4,6 +4,7 @@
 .results {
   height: 100%;
   overflow-x: hidden;
+
   &__city-image {
     position: absolute;
     height: 60%;
@@ -21,22 +22,22 @@
   }
 }
 
-@media all and (min-width: 1280px) {
-  .results {
-    overflow-x: hidden;
-    &__city-image {
-      position: absolute;
-      height: 60%;
-      z-index: -1;
-      right: 0px;
-      bottom: 150px;
-    }
-    &__bottom-image {
-      width: 100%;
-      position: absolute;
-      right: 0px;
-      bottom: 0px;
-      z-index: -2;
-    }
-  }
-}
+// @media all and (min-width: 1280px) {
+//   .results {
+//     overflow-x: hidden;
+//     &__city-image {
+//       position: absolute;
+//       height: 60%;
+//       z-index: -1;
+//       right: 0px;
+//       bottom: 150px;
+//     }
+//     &__bottom-image {
+//       width: 100%;
+//       position: absolute;
+//       right: 0px;
+//       bottom: 0px;
+//       z-index: -2;
+//     }
+//   }
+// }

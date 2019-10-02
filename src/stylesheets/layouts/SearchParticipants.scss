@@ -5,11 +5,10 @@
   overflow-y: scroll;
   overflow-x: hidden;
   width: 476px;
-  height: 300px;
   background-color: $white;
 
   &__title {
-    margin: 20px 0 15px 0;
+    margin: 20px 0 15px 40px;
     text-transform: capitalize;
     color: $cobalt-blue;
     font-size: 20px;
@@ -17,8 +16,9 @@
     letter-spacing: 0.25px;
   }
   &__container {
-    // overflow-y: scroll;
-    // overflow-x: hidden;
+    height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   &__list {
     width: 400px;
@@ -40,6 +40,7 @@
     letter-spacing: 0.15px;
   }
   &__image {
+    margin-top: 10px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -48,13 +49,13 @@
     padding-left: 10px;
   }
   &__info-name {
-    margin: 0px;
+    margin-top: 5px;
     line-height: 1.5;
     font-size: 16px;
     font-family: $font;
     letter-spacing: 0.15px;
   }
-  &__city {
+  &__info-city {
     margin: 0px;
     line-height: 1.43;
     font-size: 14px;
@@ -62,70 +63,70 @@
   }
 }
 
-@media all and (min-width: 1280px) {
-  .search-participants {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    width: 400px;
-    height: 300px;
-    background-color: $white;
+// @media all and (min-width: 1280px) {
+//   .search-participants {
+//     overflow-y: scroll;
+//     overflow-x: hidden;
+//     width: 400px;
+//     height: 300px;
+//     background-color: $white;
 
-    &__title {
-      margin: 20px 0 15px 0;
-      text-transform: capitalize;
-      color: $cobalt-blue;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.25px;
-    }
-    &__container {
-      // overflow-y: scroll;
-      // overflow-x: hidden;
-    }
-    &__list {
-      // overflow-y: scroll;
-      // overflow-x: hidden;
-      width: 400px;
-    }
-    &__data {
-      display: flex;
-      flex-direction: row;
-    }
+//     &__title {
+//       margin: 20px 0 15px 0;
+//       text-transform: capitalize;
+//       color: $cobalt-blue;
+//       font-size: 20px;
+//       font-weight: 500;
+//       letter-spacing: 0.25px;
+//     }
+//     &__container {
+//       // overflow-y: scroll;
+//       // overflow-x: hidden;
+//     }
+//     &__list {
+//       // overflow-y: scroll;
+//       // overflow-x: hidden;
+//       width: 400px;
+//     }
+//     &__data {
+//       display: flex;
+//       flex-direction: row;
+//     }
 
-    &__participant {
-      height: 67px;
-      margin-left: 40px;
-      margin-right: 0px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 10px;
-      border-bottom: 1px solid lightgrey;
-      letter-spacing: 0.15px;
-    }
-    &__image {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-    &__info {
-      padding-left: 10px;
-    }
-    &__info-name {
-      margin: 0px;
-      line-height: 1.5;
-      font-size: 16px;
-      font-family: $font;
-      letter-spacing: 0.15px;
-    }
-    &__city {
-      margin: 0px;
-      line-height: 1.43;
-      font-size: 14px;
-      opacity: 0.6;
-    }
-  }
-}
+//     &__participant {
+//       height: 67px;
+//       margin-left: 40px;
+//       margin-right: 0px;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       padding-bottom: 10px;
+//       border-bottom: 1px solid lightgrey;
+//       letter-spacing: 0.15px;
+//     }
+//     &__image {
+//       width: 40px;
+//       height: 40px;
+//       border-radius: 50%;
+//     }
+//     &__info {
+//       padding-left: 10px;
+//     }
+//     &__info-name {
+//       margin: 0px;
+//       line-height: 1.5;
+//       font-size: 16px;
+//       font-family: $font;
+//       letter-spacing: 0.15px;
+//     }
+//     &__city {
+//       margin: 0px;
+//       line-height: 1.43;
+//       font-size: 14px;
+//       opacity: 0.6;
+//     }
+//   }
+// }
 /* Customize the label (the container) */
 .container {
   display: block;
