@@ -5,6 +5,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
+import { promises } from "dns";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,10 +15,12 @@ class App extends React.Component {
       offices: [],
       airports: [],
       dateIn: "", // AAAA-MM-DD
-      dateOut: "" // AAAA-MM-DD
+      dateOut: "", // AAAA-MM-DD
+      participants: []
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
+    this.getPrices = this.getPrices.bind(this);
     //this.getDataFromServer = this.getDataFromServer.bind(this)
   }
 
@@ -26,26 +29,71 @@ class App extends React.Component {
     const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
     const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
 
-    getDataFromServer(employeesURL).then(employees =>
-      this.setState({
-        employees: employees
-      })
-    );
-
-    getDataFromServer(officesURL).then(offices =>
-      this.setState({
-        offices: offices
-      })
-    );
-
-    getDataFromServer(airportsURL).then(airports =>
+    const apiPromises = [
+      getDataFromServer(employeesURL),
+      getDataFromServer(officesURL),
+      getDataFromServer(airportsURL)
+    ];
+    Promise.all(apiPromises).then(results =>
       this.setState(
         {
-          airports: airports
+          employees: results[0],
+          offices: results[1],
+          airports: results[2]
         },
         () => console.log(this.state)
       )
     );
+  }
+
+  getAirportName() {
+    const { employees, airports } = this.state;
+    debugger;
+    const newEmployees = employees.map(employee => {
+      const airport = airports.find(
+        airport => airport.code === employee.airportCode
+      );
+      return { ...employee, airport: airport.name };
+    });
+  }
+
+  getPrices2() {
+    const { employees, offices, airports } = this.state; // Cambiar por participants
+    const allAirports = employees.map(employee => employee.airportCode);
+    const airportsFrom = [...new set(allAirports)]; // para evitar aeropuertos repetidos
+    const allPromises = [];
+    for (let office of offices) {
+      const allPromises = [];
+      for (let office of offices) {
+        const promisesOffice = [];
+        for (let airport of airports) {
+          promisesOffice.push(fetch);
+        }
+      }
+    }
+  }
+
+  getPrices() {
+    const { airports, offices } = this.state;
+    for (let airport of airports) {
+      const url = "https://adalab-teamwire.herokuapp.com";
+      for (let office of offices) {
+        let airportTo = office.airportCode;
+        const airportFrom = airport.code;
+        const pricesURL = `${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`;
+        if (airportTo !== airportFrom) {
+          return fetch(pricesURL);
+        }
+        console.log(
+          "airportTO : " + airportTo,
+          "airportFrom: " + airportFrom + "pricesURL : " + pricesURL
+        );
+      }
+
+      //return pricePromises = {fecth()}
+    }
+
+    //const pricePromises = { fecth() }
   }
 
   handleDateIn(ev) {
@@ -59,12 +107,11 @@ class App extends React.Component {
     console.log(ev.target.value);
     const dateOut = ev.target.value;
     this.setState({
-      dateIn: dateOut
+      dateOut: dateOut
     });
   }
+
   render() {
-    const { employees, airports } = this.state;
-    console.log(this.state);
     return (
       <React.Fragment>
         <Header />
@@ -73,7 +120,13 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={() => <Home employees={employees} airports={airports} />}
+            render={props => (
+              <Home
+                handleDateIn={this.handleDateIn}
+                handleDateOut={this.handleDateOut}
+                getPrices={this.getPrices}
+              />
+            )}
           />
           <Route path="/results" component={Results} />
         </Switch>

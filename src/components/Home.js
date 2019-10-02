@@ -4,18 +4,17 @@ import SearchDate from "./SearchDate";
 import SearchButton from "./SearchButton";
 import SearchParticipants from "./SearchParticipants";
 
-const Home = (props) => {
-  const { employees, airports = props}
+const Home = props => {
   return (
     <div className="App">
       <SearchDate
-      // handleDateIn={this.handleDateIn}
-      // handleDateOut={this.handleDateOut}
+        handleDateIn={props.handleDateIn}
+        handleDateOut={props.handleDateOut}
       />
       <React.Fragment>
-        <SearchParticipants employees={employees} />
-        <SearchLocation airports={airports} />
-        <SearchButton />;
+        <SearchParticipants />
+        <SearchLocation />
+        <SearchButton getPrices={props.getPrices} />;
       </React.Fragment>
     </div>
   );
