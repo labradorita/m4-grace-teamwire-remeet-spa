@@ -81,14 +81,17 @@ class App extends React.Component {
   }
   sortedList(data) {
     // { }
-    const { employees } = this.state;
+    const { employees, selectedEmployees } = this.state;
+    const filteredEmployees = employees.filter(employee =>
+      selectedEmployees.includes(employee.id)
+    );
     const rawArray = [];
     for (let resultsByAirportTo of data) {
       const participantsResume = [];
       const airportTo = resultsByAirportTo[0].airportTo.code;
       let totalToAirport = 0;
       for (let singleResultAirportFromAirpotTo of resultsByAirportTo) {
-        const numParticipatsFrom = employees.filter(
+        const numParticipatsFrom = filteredEmployees.filter(
           employee =>
             employee.airportCode ===
             singleResultAirportFromAirpotTo.airportFrom.code
@@ -139,6 +142,7 @@ class App extends React.Component {
     this.setState({
       selectedEmployees: selectedEmployeesInc
     });
+    console.log(selectedEmployeesInc);
   };
 
   handleDateIn(ev) {
