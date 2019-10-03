@@ -4,7 +4,7 @@ import "../stylesheets/layouts/SearchParticipants.scss";
 import face from "../images/face.png";
 
 const SearchParticipants = props => {
-  const { employees, getAirportNameByCode } = props;
+  const { employees, getAirportPropByCode } = props;
   return (
     <div className="search-participants">
       <h2 className="search-participants__title">select participants</h2>
@@ -15,7 +15,7 @@ const SearchParticipants = props => {
               <div className="search-participants__data">
                 <img
                   className="search-participants__image"
-                  src={face}
+                  src={getAirportPropByCode(employee.airportCode)("imageThumb")}
                   alt="participant face"
                 />
                 <div className="search-participants__info">
@@ -23,12 +23,16 @@ const SearchParticipants = props => {
                     {employee.name}
                   </h4>
                   <p className="search-participants__info-city">
-                    {getAirportNameByCode(employee.airportCode)}
+                    {getAirportPropByCode(employee.airportCode)("name")}
                   </p>
                 </div>
               </div>
-              <label htmlFor="checkbox" className="container">
-                <input id="checkbox" type="checkbox" defaultChecked="checked" />
+              <label htmlFor={employee.name} className="container">
+                <input
+                  id={employee.name}
+                  type="checkbox"
+                  defaultChecked="checked"
+                />
                 <span className="checkmark"></span>
               </label>
             </li>
