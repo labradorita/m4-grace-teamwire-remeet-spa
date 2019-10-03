@@ -1,7 +1,8 @@
 import React from "react";
 import "../stylesheets/layouts/ResultsMain.scss";
 
-const ResultsMain = () => {
+const ResultsMain = props => {
+  const { element, getAirportPropByCode } = props;
   return (
     <div className="results-main">
       <img
@@ -11,9 +12,11 @@ const ResultsMain = () => {
       />
       <div className="results-main__booking-section">
         <div className="results-main__city-airport-price">
-          <h2 className="results-main__city">City</h2>
-          <p className="results-main__airport">Airport</p>
-          <p className="results-main__price">0000 €</p>
+          <h2 className="results-main__city">{props.cheaperCity.airportTo}</h2>
+          <p className="results-main__airport">
+            {getAirportPropByCode(element.airportTo)("name")}
+          </p>
+          <p className="results-main__price">{element.totalToAirport}€</p>
         </div>
         <div className="results-main__book-column">
           <button className="results-main__book-button">BOOK</button>
@@ -22,34 +25,24 @@ const ResultsMain = () => {
       </div>
       <div className="results-main__participants-info">
         <ul className="results-main__participants-list">
-          <li className="results-main__participants-item">
-            <div className="results-main__participants--left-column">
-              <h4 className="results-main__participants-number">
-                <i className="far fa-user"></i>
-                {`Nº`} participants
-              </h4>
-              <p className="results-main__participants-location">
-                From {`location`}
-              </p>
-            </div>
-            <div className="results-main__participants--right-column">
-              <p className="results-main__participants-price">{`000 €`}</p>
-            </div>
-          </li>
-          <li className="results-main__participants-item">
-            <div className="results-main__participants--left-column">
-              <h4 className="results-main__participants-number">
-                <i className="far fa-user"></i>
-                {`Nº`} participants
-              </h4>
-              <p className="results-main__participants-location">
-                From {`location`}
-              </p>
-            </div>
-            <div className="results-main__participants--right-column">
-              <p className="results-main__participants-price">{`000 €`}</p>
-            </div>
-          </li>
+          {element.participantsResume.map(participant => (
+            <li className="results-main__participants-item">
+              <div className="results-main__participants--left-column">
+                <h4 className="results-main__participants-number">
+                  <i className="far fa-user"></i>
+                  {participant.count} participants
+                </h4>
+                <p className="results-main__participants-location">
+                  From {participant.airportFrom}
+                </p>
+              </div>
+              <div className="results-main__participants--right-column">
+                <p className="results-main__participants-price">
+                  {participant.singlePrice}€
+                </p>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

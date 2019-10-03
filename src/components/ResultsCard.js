@@ -11,11 +11,20 @@ const ResultsCard = ({ composeList, getAirportPropByCode }) => {
         <ul className="results-list">
           {composeList.map((city, index) => {
             if (index === 0) {
-              return (<ResultsMain cheaperCity={city} getAirportPropByCode={getAirportPropByCode} />)
+              return (
+                <ResultsMain
+                  cheaperCity={city}
+                  getAirportPropByCode={getAirportPropByCode}
+                  element={composeList[0]}
+                />
+              );
             } else {
               return (
-                <ResultsList city={city} getAirportPropByCode={getAirportPropByCode} />
-              )
+                <ResultsList
+                  city={city}
+                  getAirportPropByCode={getAirportPropByCode}
+                />
+              );
             }
           })}
         </ul>
