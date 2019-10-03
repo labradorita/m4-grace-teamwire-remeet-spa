@@ -64,7 +64,7 @@ class App extends React.Component {
       .filter(employee => selectedEmployees.includes(employee.id))
       .map(employee => employee.airportCode);
     const airportsFrom = [...new Set(allAirports)]; // para evitar aeropuertos repetidos
-    const fnLoading = () => new Promise(resolve => { setTimeout(() => { resolve() }, 1000) })
+    const fnLoading = () => new Promise(resolve => { setTimeout(() => { resolve() }, 5000) })
     const allResults = [];
     for (let office of offices) {
       const fromOffice = office.airportCode;
