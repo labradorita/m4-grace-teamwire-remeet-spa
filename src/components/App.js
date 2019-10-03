@@ -44,7 +44,7 @@ class App extends React.Component {
   getAirportObjectByCode = airportCode => {
     const { airports } = this.state;
     const airportFound = airports.find(airport => airport.code === airportCode);
-    console.log(airportFound);
+    // console.log(airportFound);
     return airportFound || {};
   };
 
