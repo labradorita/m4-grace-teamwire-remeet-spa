@@ -6,7 +6,7 @@ import resultBubble from "../images/bubble.png";
 
 import ResultsMessage from "./ResultsMessage";
 
-const Results = () => {
+const Results = ({ composeList }) => {
   return (
     <React.Fragment>
       <div className="results">

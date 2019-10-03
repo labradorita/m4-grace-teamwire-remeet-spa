@@ -2,9 +2,9 @@ import React from "react";
 import "../stylesheets/layouts/SearchLocation.scss";
 import Collapsible from "./Collapsible";
 
+
 const SearchLocation = props => {
   const { offices, getAirportPropByCode } = props;
-
   return (
     <div className="search-location">
       <Collapsible
@@ -29,7 +29,7 @@ const SearchLocation = props => {
           </ul>
         </div>
       </Collapsible>
-    </div>
+    </div >
   );
 };
 

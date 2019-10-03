@@ -30,7 +30,7 @@ const SearchCard = props => {
           getAirportObjectByCode={getAirportObjectByCode}
           airport={airport}
         />
-        <SearchButton />
+        <SearchButton getPrices={props.getPrices} />
       </div>
     </React.Fragment>
   );

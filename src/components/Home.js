@@ -8,20 +8,17 @@ const Home = ({
   employees,
   getAirportPropByCode,
   handleDateIn,
-  handleDateOut,
-  getAirportObjectByCode,
-  airport
+  handleDateOut
 }) => (
+
   <div className="App">
     <React.Fragment>
       <SearchCard
         offices={offices}
         employees={employees}
         getAirportPropByCode={getAirportPropByCode}
-        getAirportObjectByCode={getAirportObjectByCode}
         handleDateOut={handleDateOut}
         handleDateIn={handleDateIn}
-        airport={airport}
       />
       <div className="home__title">remote meeting calculator</div>
       <img src={homeImage} alt="map illustration" className="home__image" />
