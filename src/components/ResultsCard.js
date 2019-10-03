@@ -4,12 +4,24 @@ import Return from "./Return";
 import ResultsList from "./ResultsList";
 import "../stylesheets/layouts/ResultsCard.scss";
 
-const ResultsCard = () => {
+const ResultsCard = ({ composeList }) => {
   return (
     <React.Fragment>
       <div className="results-card">
-        <ResultsMain />
-        <ResultsList />
+        {composeList.map((city, index) => {
+          if (index === 0) {
+            return (<ResultsMain cheaperCity={city} />)
+          }
+        })}
+        <ul className="results-list">
+          {composeList.map((city, index) => {
+            if (index > 0) {
+              return (
+                <ResultsList city={city} />
+              )
+            }
+          })}
+        </ul>
         <Return />
       </div>
     </React.Fragment>

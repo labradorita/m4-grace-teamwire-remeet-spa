@@ -11,7 +11,8 @@ const SearchCard = props => {
     employees,
     handleDateIn,
     handleDateOut,
-    getAirportNameByCode
+    getAirportNameByCode,
+    getPrices,
   } = props;
 
   return (
@@ -26,7 +27,7 @@ const SearchCard = props => {
           offices={offices}
           getAirportNameByCode={getAirportNameByCode}
         />
-        <SearchButton getPrices={props.getPrices} />
+        <SearchButton getPrices={getPrices} />
       </div>
     </React.Fragment>
   );
