@@ -15,12 +15,14 @@ class App extends React.Component {
       offices: [],
       airports: [],
       dateIn: "", // AAAA-MM-DD
-      dateOut: "" // AAAA-MM-DD
+      dateOut: "", // AAAA-MM-DD
+      selectedEmployees: []
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
     this.getAirportPropByCode = this.getAirportPropByCode.bind(this);
     this.getAirportObjectByCode = this.getAirportObjectByCode.bind(this);
+    this.getSelectedEmployees = this.getSelectedEmployees.bind(this);
   }
 
   componentDidMount() {
@@ -41,7 +43,7 @@ class App extends React.Component {
   getAirportObjectByCode = airportCode => {
     const { airports } = this.state;
     const airportFound = airports.find(airport => airport.code === airportCode);
-    console.log(airportFound);
+    //console.log(airportFound);
     return airportFound || {};
   };
 
@@ -49,6 +51,22 @@ class App extends React.Component {
     const airport = this.getAirportObjectByCode(airportCode);
     return airport[propname] || null;
   };
+
+  getSelectedEmployees() {
+    const { employees } = this.state;
+    const selecEmployees = employees.map(
+      employee => {
+        return employee.id;
+      },
+      () => console.log(this.selectedEmployees)
+    );
+    this.setState(
+      {
+        selectedEmployees: selecEmployees
+      }
+      // () => console.log(this.selectedEmployees)
+    );
+  }
 
   handleDateIn(ev) {
     console.log(ev.target.value);
