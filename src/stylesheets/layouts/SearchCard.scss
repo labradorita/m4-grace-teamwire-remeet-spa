@@ -6,25 +6,11 @@
   flex-direction: column;
   align-items: center;
   width: 480px;
-  border: 1px solid $brown-grey;
+  max-height: 85vh;
+  border: 1px solid gainsboro;
   border-radius: 5px;
   margin-left: 80px;
-  padding: 40px;
+  padding: 40px 0 20px 0;
   box-shadow: 5px 0 5px -4px $brown-grey, -5px 0 5px -4px $brown-grey;
   background-color: $white;
-}
-
-@media all and (min-width: 1280px) {
-  .search-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 480px;
-    border: 1px solid $brown-grey;
-    border-radius: 5px;
-    margin-left: 80px;
-    padding: 40px;
-    box-shadow: 5px 0 5px -4px $brown-grey, -5px 0 5px -4px $brown-grey;
-    background-color: $white;
-  }
 }

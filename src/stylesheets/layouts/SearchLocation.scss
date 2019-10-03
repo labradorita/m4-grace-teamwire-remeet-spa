@@ -3,9 +3,6 @@
 
 .search-location {
   width: 476px;
-  height: auto;
-  scroll-margin-right: true;
-  position: relative;
   background-color: $white;
 
   &__main {
@@ -30,14 +27,14 @@
     font-weight: 500;
   }
   &__container {
-    height: 300px;
     overflow-y: scroll;
     overflow-x: hidden;
   }
   &__list {
     list-style: none;
-    padding-left: 80px;
+    padding: 0 40px 0 40px;
     margin-right: 40px;
+    margin-left: 40px;
     &__element {
       height: 62px;
       width: 100%;
