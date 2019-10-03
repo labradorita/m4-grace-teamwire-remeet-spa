@@ -9,10 +9,9 @@ const Home = ({
   getAirportPropByCode,
   handleDateIn,
   handleDateOut,
-  getAirportObjectByCode,
-  airport,
   selectedEmployees,
-  onSelect
+  onSelect,
+  getPrices
 }) => (
   <div className="App">
     <React.Fragment>
@@ -20,12 +19,11 @@ const Home = ({
         offices={offices}
         employees={employees}
         getAirportPropByCode={getAirportPropByCode}
-        getAirportObjectByCode={getAirportObjectByCode}
         handleDateOut={handleDateOut}
         handleDateIn={handleDateIn}
-        airport={airport}
         selectedEmployees={selectedEmployees}
         onSelect={onSelect}
+        getPrices={getPrices}
       />
       <div className="home__title">remote meeting calculator</div>
       <img src={homeImage} alt="map illustration" className="home__image" />

@@ -8,9 +8,9 @@ const InputSearchDate = props => {
         name={`input${props.type}`}
         className="search-date__item"
         placeholder="start Date"
-        defaultValue={props.min}
+        min={props.min}
         onChange={props.handleDate}
-      />{" "}
+      />
       <i className="far fa-clock search-date__iclock"></i>
     </span>
   );

@@ -4,7 +4,6 @@ import Collapsible from "./Collapsible";
 
 const SearchLocation = props => {
   const { offices, getAirportPropByCode } = props;
-
   return (
     <div className="search-location">
       <Collapsible

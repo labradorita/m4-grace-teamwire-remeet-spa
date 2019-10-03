@@ -12,10 +12,9 @@ const SearchCard = props => {
     handleDateIn,
     handleDateOut,
     getAirportPropByCode,
-    getAirportObjectByCode,
-    airport,
     selectedEmployees,
-    onSelect
+    onSelect,
+    getPrices
   } = props;
 
   return (
@@ -31,10 +30,8 @@ const SearchCard = props => {
         <SearchLocation
           offices={offices}
           getAirportPropByCode={getAirportPropByCode}
-          getAirportObjectByCode={getAirportObjectByCode}
-          airport={airport}
         />
-        <SearchButton />
+        <SearchButton getPrices={getPrices} />
       </div>
     </React.Fragment>
   );

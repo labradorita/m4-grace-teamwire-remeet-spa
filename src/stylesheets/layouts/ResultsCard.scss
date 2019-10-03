@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   width: 480px;
+  height: 85vh;
   border: 1px solid gainsboro;
   border-radius: 5px;
   position: relative;
@@ -14,20 +15,4 @@
   box-shadow: 5px 0 5px -4px $brown-grey, -5px 0 5px -4px $brown-grey;
   background-color: $white;
   z-index: 1;
-}
-
-@media all and (min-width: 1280px) {
-  .results-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 480px;
-    border: 1px solid gainsboro;
-    border-radius: 5px;
-    position: relative;
-    left: 80px;
-    padding: 40px 40px 25px 40px;
-    box-shadow: 5px 0 5px -4px $brown-grey, -5px 0 5px -4px $brown-grey;
-    background-color: $white;
-  }
 }

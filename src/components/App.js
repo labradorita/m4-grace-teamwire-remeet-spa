@@ -14,12 +14,15 @@ class App extends React.Component {
       employees: [],
       offices: [],
       airports: [],
-      dateIn: "", // AAAA-MM-DD
-      dateOut: "", // AAAA-MM-DD
-      selectedEmployees: []
+      dateIn: "2019-10-18", // AAAA-MM-DD
+      dateOut: "2019-10-23", // AAAA-MM-DD
+      selectedEmployees: [],
+      composeList: []
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
+    this.getPrices = this.getPrices.bind(this);
+    this.sortedList = this.sortedList.bind(this);
     this.getAirportPropByCode = this.getAirportPropByCode.bind(this);
     this.getAirportObjectByCode = this.getAirportObjectByCode.bind(this);
     // this.getSelectedEmployees = this.getSelectedEmployees.bind(this);
@@ -45,10 +48,79 @@ class App extends React.Component {
   getAirportObjectByCode = airportCode => {
     const { airports } = this.state;
     const airportFound = airports.find(airport => airport.code === airportCode);
-    //console.log(airportFound);
     return airportFound || {};
   };
 
+  getPrices() {
+    const {
+      employees,
+      offices,
+      dateIn,
+      dateOut,
+      selectedEmployees
+    } = this.state; // Cambiar por participants
+    const url = "https://adalab-teamwire.herokuapp.com";
+    const allAirports = employees
+      .filter(employee => selectedEmployees.includes(employee.id))
+      .map(employee => employee.airportCode);
+    const airportsFrom = [...new Set(allAirports)]; // para evitar aeropuertos repetidos
+    const allResults = [];
+    for (let office of offices) {
+      const fromOffice = office.airportCode;
+      const promisesOffice = [];
+      for (let airport of airportsFrom) {
+        promisesOffice.push(
+          getDataFromServer(
+            `${url}/flights/price/from/${airport}/to/${fromOffice}/${dateOut}/${dateIn}`
+          )
+        );
+      }
+      allResults.push(Promise.all(promisesOffice)); //Promise.all
+    }
+    Promise.all(allResults).then(data => this.sortedList(data));
+  }
+  sortedList(data) {
+    // { }
+    const { employees } = this.state;
+    const rawArray = [];
+    for (let resultsByAirportTo of data) {
+      const participantsResume = [];
+      const airportTo = resultsByAirportTo[0].airportTo.code;
+      let totalToAirport = 0;
+      for (let singleResultAirportFromAirpotTo of resultsByAirportTo) {
+        const numParticipatsFrom = employees.filter(
+          employee =>
+            employee.airportCode ===
+            singleResultAirportFromAirpotTo.airportFrom.code
+        ).length;
+        const price =
+          singleResultAirportFromAirpotTo.airportFrom.code !==
+          singleResultAirportFromAirpotTo.airportTo.code
+            ? singleResultAirportFromAirpotTo.avgPrice
+            : 0;
+        const totalByAirportFrom = numParticipatsFrom * price;
+        totalToAirport += totalByAirportFrom;
+        const participantsFrom = {
+          count: numParticipatsFrom,
+          singlePrice: price,
+          airportFrom: singleResultAirportFromAirpotTo.airportFrom.code
+        };
+        participantsResume.push(participantsFrom);
+      }
+      rawArray.push({ totalToAirport, airportTo, participantsResume });
+    }
+    const sortedArray = rawArray.sort(
+      (airportToPrev, airportToNext) =>
+        airportToPrev.totalToAirport < airportToNext.totalToAirport
+    );
+    //return sortedArray;
+    this.setState(
+      {
+        composeList: sortedArray
+      },
+      () => console.log(sortedArray)
+    );
+  }
   getAirportPropByCode = airportCode => propname => {
     const airport = this.getAirportObjectByCode(airportCode);
     return airport[propname] || null;
@@ -67,7 +139,6 @@ class App extends React.Component {
     this.setState({
       selectedEmployees: selectedEmployeesInc
     });
-    console.log(selectedEmployeesInc);
   };
 
   handleDateIn(ev) {
@@ -100,16 +171,23 @@ class App extends React.Component {
                 handleDateIn={this.handleDateIn}
                 handleDateOut={this.handleDateOut}
                 getAirportPropByCode={this.getAirportPropByCode}
-                getAirportObjectByCode={this.getAirportObjectByCode}
                 offices={offices}
                 employees={employees}
-                airport={airport}
                 selectedEmployees={selectedEmployees}
                 onSelect={this.onSelect}
+                getPrices={this.getPrices}
               />
             )}
           />
-          <Route path="/results" component={Results} />
+          <Route
+            path="/results"
+            render={props => (
+              <Results
+                composeList={this.state.composeList}
+                getAirportPropByCode={this.getAirportPropByCode}
+              />
+            )}
+          />
         </Switch>
       </React.Fragment>
     );

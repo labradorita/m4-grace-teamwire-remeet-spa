@@ -6,12 +6,14 @@ import resultBubble from "../images/bubble.png";
 
 import ResultsMessage from "./ResultsMessage";
 
-const Results = () => {
-  return (
-    <React.Fragment>
+const Results = (props) => {
+  if (props.composeList !== undefined) {
+    const { composeList, getAirportPropByCode } = props;
+    console.log(composeList[0])
+    return (< React.Fragment >
       <div className="results">
-        <ResultsCard />
-        <ResultsMessage />
+        <ResultsCard composeList={composeList} getAirportPropByCode={getAirportPropByCode} />
+        <ResultsMessage element={composeList[0]} getAirportPropByCode={getAirportPropByCode} />
         <img
           src={resultCity}
           alt="Tu ciudad es {`city`}"
@@ -25,8 +27,10 @@ const Results = () => {
           />
         </div>
       </div>
-    </React.Fragment>
-  );
-};
+    </React.Fragment >)
+  } else {
+    return ("Cargando...")
+  }
+}
 
 export default Results;
