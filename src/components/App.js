@@ -64,6 +64,7 @@ class App extends React.Component {
       .filter(employee => selectedEmployees.includes(employee.id))
       .map(employee => employee.airportCode);
     const airportsFrom = [...new Set(allAirports)]; // para evitar aeropuertos repetidos
+    const fnLoading = () => new Promise(resolve => { setTimeout(() => { resolve() }, 1000) })
     const allResults = [];
     for (let office of offices) {
       const fromOffice = office.airportCode;
@@ -77,7 +78,8 @@ class App extends React.Component {
       }
       allResults.push(Promise.all(promisesOffice)); //Promise.all
     }
-    Promise.all(allResults).then(data => this.sortedList(data));
+    allResults.push(fnLoading());
+    Promise.all(allResults).then(data => this.sortedList(data.filter(Boolean)));
   }
   sortedList(data) {
     // { }

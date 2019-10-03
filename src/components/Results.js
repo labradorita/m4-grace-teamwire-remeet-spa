@@ -7,7 +7,7 @@ import resultBubble from "../images/bubble.png";
 import ResultsMessage from "./ResultsMessage";
 
 const Results = (props) => {
-  if (props.composeList !== undefined) {
+  if (props.composeList.length) {
     const { composeList, getAirportPropByCode } = props;
     console.log(composeList[0])
     return (< React.Fragment >
@@ -29,7 +29,10 @@ const Results = (props) => {
       </div>
     </React.Fragment >)
   } else {
-    return ("Cargando...")
+    return (<div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+    </div>)
   }
 }
 
