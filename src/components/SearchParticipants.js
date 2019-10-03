@@ -1,7 +1,7 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import "../stylesheets/layouts/SearchParticipants.scss";
-// import face from "../images/face.png";
+import face from "../images/face.png";
 
 const SearchParticipants = props => {
   const {
@@ -19,7 +19,7 @@ const SearchParticipants = props => {
             <div className="search-participants__data">
               <img
                 className="search-participants__image"
-                src={getAirportPropByCode(employee.airportCode)("imageThumb")}
+                src={face}
                 alt="participant face"
               />
               <div className="search-participants__info">
