@@ -6,6 +6,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
 import { employeesURL, officesURL, airportsURL } from "../services/config";
+import { get } from "http";
 
 class App extends React.Component {
   constructor(props) {
@@ -57,14 +58,14 @@ class App extends React.Component {
     const selecEmployees = employees.map(
       employee => {
         return employee.id;
-      },
-      () => console.log(this.selectedEmployees)
+      }
+      //() => console.log(this.selectedEmployees)
     );
     this.setState(
       {
         selectedEmployees: selecEmployees
-      }
-      // () => console.log(this.selectedEmployees)
+      },
+      () => console.log(this.state.selectedEmployees)
     );
   }
 
@@ -102,6 +103,7 @@ class App extends React.Component {
                 offices={offices}
                 employees={employees}
                 airport={airport}
+                getSelectedEmployees={this.getSelectedEmployees}
               />
             )}
           />

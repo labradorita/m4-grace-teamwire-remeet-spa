@@ -4,7 +4,7 @@ import "../stylesheets/layouts/SearchParticipants.scss";
 import face from "../images/face.png";
 
 const SearchParticipants = props => {
-  const { employees, getAirportPropByCode } = props;
+  const { employees, getAirportPropByCode, getSelectedEmployees } = props;
   return (
     <div className="search-participants">
       <h2 className="search-participants__title">select participants</h2>
@@ -32,6 +32,7 @@ const SearchParticipants = props => {
                   id={employee.name}
                   type="checkbox"
                   defaultChecked="checked"
+                  onChange={getSelectedEmployees}
                 />
                 <span className="checkmark"></span>
               </label>
