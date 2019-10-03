@@ -6,12 +6,12 @@ import resultBubble from "../images/bubble.png";
 
 import ResultsMessage from "./ResultsMessage";
 
-const Results = ({ composeList }) => {
+const Results = ({ composeList, getAirportPropByCode }) => {
   console.log(composeList)
   return (
     < React.Fragment >
       <div className="results">
-        <ResultsCard composeList={composeList} />
+        <ResultsCard composeList={composeList} getAirportPropByCode={getAirportPropByCode} />
         <ResultsMessage />
         <img
           src={resultCity}

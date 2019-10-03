@@ -26,7 +26,7 @@ class App extends React.Component {
     this.getAirportPropByCode = this.getAirportPropByCode.bind(this);
     this.getAirportObjectByCode = this.getAirportObjectByCode.bind(this);
   }
-  
+
   componentDidMount() {
     const apiPromises = [
       getDataFromServer(employeesURL),
@@ -48,7 +48,6 @@ class App extends React.Component {
     return airportFound || {};
   };
 
-  //`${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`
   getPrices() {
     const { employees, offices, dateIn, dateOut } = this.state; // Cambiar por participants
     const url = "https://adalab-teamwire.herokuapp.com";
@@ -96,6 +95,7 @@ class App extends React.Component {
     }, () => console.log(sortedArray))
   }
   getAirportPropByCode = airportCode => propname => {
+    debugger;
     const airport = this.getAirportObjectByCode(airportCode);
     return airport[propname] || null;
   };
@@ -136,7 +136,7 @@ class App extends React.Component {
               />
             )}
           />
-         <Route path="/results" render={props => <Results composeList={this.state.composeList} />} />
+          <Route path="/results" render={props => <Results composeList={this.state.composeList} getAirportPropByCode={this.getAirportPropByCode} />} />
         </Switch>
       </React.Fragment >
     );
