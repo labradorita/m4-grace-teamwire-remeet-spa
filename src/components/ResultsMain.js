@@ -6,8 +6,8 @@ const ResultsMain = props => {
   return (
     <div className="results-main">
       <img
-        src="https://cdn.civitatis.com/espana/madrid/guia/madrid.jpg"
-        alt="Madrid, Edificio Metrópolis"
+        src={getAirportPropByCode(element.airportTo)('image')}
+        alt={getAirportPropByCode(element.airportTo)('name')}
         className="results-main__image"
       />
       <div className="results-main__booking-section">

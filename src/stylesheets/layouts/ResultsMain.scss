@@ -9,7 +9,8 @@
 
   &__image {
     width: 398px;
-    border-radius: 5px 5px 0 0;
+    height: 185px;
+    object-fit: cover;
     background-size: cover;
   }
   &__booking-section {

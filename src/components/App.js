@@ -98,7 +98,7 @@ class App extends React.Component {
         ).length;
         const price =
           singleResultAirportFromAirpotTo.airportFrom.code !==
-          singleResultAirportFromAirpotTo.airportTo.code
+            singleResultAirportFromAirpotTo.airportTo.code
             ? singleResultAirportFromAirpotTo.avgPrice
             : 0;
         const totalByAirportFrom = numParticipatsFrom * price;
@@ -114,14 +114,14 @@ class App extends React.Component {
     }
     const sortedArray = rawArray.sort(
       (airportToPrev, airportToNext) =>
-        airportToPrev.totalToAirport < airportToNext.totalToAirport
+        airportToPrev.totalToAirport - airportToNext.totalToAirport
     );
     //return sortedArray;
     this.setState(
       {
         composeList: sortedArray
       },
-      () => console.log(sortedArray)
+      () => console.log("sorted array", sortedArray)
     );
   }
   getAirportPropByCode = airportCode => propname => {
