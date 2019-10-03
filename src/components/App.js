@@ -57,13 +57,17 @@ class App extends React.Component {
   onSelect = ev => {
     const employeeId = ev.target.value;
 
-    let { selectedEmployees } = this.state;
+    const { selectedEmployees } = this.state;
+    let selectedEmployeesInc = [];
     if (selectedEmployees.includes(employeeId)) {
-      selectedEmployees = selectedEmployees.filter(id => id === employeeId);
+      selectedEmployeesInc = selectedEmployees.filter(id => id !== employeeId);
     } else {
-      selectedEmployees = [...selectedEmployees, employeeId];
+      selectedEmployeesInc = [...selectedEmployees, employeeId];
     }
-    console.log(selectedEmployees);
+    this.setState({
+      selectedEmployees: selectedEmployeesInc
+    });
+    console.log(selectedEmployeesInc);
   };
 
   handleDateIn(ev) {
