@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "./static/css/main.e105df3e.chunk.css",
+    "main.js": "./static/js/main.4072b32c.chunk.js",
+    "main.js.map": "./static/js/main.4072b32c.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.de052180.js",
+    "runtime-main.js.map": "./static/js/runtime-main.de052180.js.map",
+    "static/js/2.eb83d85f.chunk.js": "./static/js/2.eb83d85f.chunk.js",
+    "static/js/2.eb83d85f.chunk.js.map": "./static/js/2.eb83d85f.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.59b87d89c61c1622abe421738369131a.js": "./precache-manifest.59b87d89c61c1622abe421738369131a.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.e105df3e.chunk.css.map": "./static/css/main.e105df3e.chunk.css.map",
+    "static/media/Illustration.png": "./static/media/Illustration.44222db4.png",
+    "static/media/bubble.png": "./static/media/bubble.68e7ec97.png",
+    "static/media/face.png": "./static/media/face.ad158d24.png",
+    "static/media/madrid-circle.jpg": "./static/media/madrid-circle.0a64ef00.jpg",
+    "static/media/result-city.png": "./static/media/result-city.2d7de25c.png"
+  }
+}
