@@ -7,10 +7,11 @@ import resultBubble from "../images/bubble.png";
 import ResultsMessage from "./ResultsMessage";
 
 const Results = ({ composeList }) => {
+  console.log(composeList)
   return (
-    <React.Fragment>
+    < React.Fragment >
       <div className="results">
-        <ResultsCard />
+        <ResultsCard composeList={composeList} />
         <ResultsMessage />
         <img
           src={resultCity}
@@ -25,7 +26,7 @@ const Results = ({ composeList }) => {
           />
         </div>
       </div>
-    </React.Fragment>
+    </React.Fragment >
   );
 };
 

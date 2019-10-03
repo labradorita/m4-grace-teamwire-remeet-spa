@@ -4,8 +4,8 @@
 .results-list {
   list-style: none;
   width: 400px;
-  height: auto;
-  overflow: scroll;
+  height: 200px;
+  overflow-Y: scroll;
 
   &__item {
     width: 100%;

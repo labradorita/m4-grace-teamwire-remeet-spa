@@ -13,7 +13,8 @@ const SearchCard = props => {
     handleDateOut,
     getAirportPropByCode,
     getAirportObjectByCode,
-    airport
+    airport,
+    getPrices,
   } = props;
 
   return (
@@ -30,7 +31,7 @@ const SearchCard = props => {
           getAirportObjectByCode={getAirportObjectByCode}
           airport={airport}
         />
-        <SearchButton getPrices={props.getPrices} />
+        <SearchButton getPrices={getPrices} />
       </div>
     </React.Fragment>
   );
