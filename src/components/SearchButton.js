@@ -7,7 +7,7 @@ const SearchButton = ({ getPrices }) => {
   return (
     <div className="search-button">
       <Link to="/results">
-        <button className="search-button__button">
+        <button className="search-button__button" onClick={getPrices}>
           <strong>SEARCH</strong>
         </button>
       </Link>

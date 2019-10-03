@@ -7,24 +7,26 @@ const Home = ({
   offices,
   employees,
   getAirportNameByCode,
+  getAirportPropByCode,
   handleDateIn,
-  handleDateOut
+  handleDateOut,
+  getPrices
 }) => (
-  <div className="App">
-    <React.Fragment>
-      <SearchCard
-        offices={offices}
-        employees={employees}
-        getAirportNameByCode={getAirportNameByCode}
-        handleDateOut={handleDateOut}
-        handleDateIn={handleDateIn}
-      />
-      <div className="home">
+    <div className="App">
+      <React.Fragment>
+        <SearchCard
+          offices={offices}
+          employees={employees}
+          getAirportNameByCode={getAirportNameByCode}
+          handleDateOut={handleDateOut}
+          handleDateIn={handleDateIn}
+          getPrices={getPrices}
+          getAirportPropByCode={getAirportPropByCode}
+        />
         <div className="home__title">remote meeting calculator</div>
         <img src={homeImage} alt="map illustration" className="home__image" />
-      </div>
-    </React.Fragment>
-  </div>
-);
+      </React.Fragment>
+    </div>
+  );
 
 export default Home;

@@ -14,23 +14,20 @@ class App extends React.Component {
       employees: [],
       offices: [],
       airports: [],
-      dateIn: "", // AAAA-MM-DD
-      dateOut: "" // AAAA-MM-DD
+      dateIn: "2019-10-18", // AAAA-MM-DD
+      dateOut: "2019-10-23", // AAAA-MM-DD
+      participants: [],
+      composeList: [],
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
-    this.getAirportNameByCode = this.getAirportNameByCode.bind(this);
-    // this.getAirportName = this.getAirportName.bind(this);
-    // this.getAirportOffice = this.getAirportOffice.bind(this);
-    // this.getPrices = this.getPrices.bind(this);
-    //this.getDataFromServer = this.getDataFromServer.bind(this)
+    this.getPrices = this.getPrices.bind(this);
+    this.sortedList = this.sortedList.bind(this);
+    this.getAirportPropByCode = this.getAirportPropByCode.bind(this);
+    this.getAirportObjectByCode = this.getAirportObjectByCode.bind(this);
   }
 
   componentDidMount() {
-    // const employeesURL = "https://adalab-teamwire.herokuapp.com/employees";
-    // const officesURL = "https://adalab-teamwire.herokuapp.com/offices";
-    // const airportsURL = "https://adalab-teamwire.herokuapp.com/airports";
-
     const apiPromises = [
       getDataFromServer(employeesURL),
       getDataFromServer(officesURL),
@@ -40,88 +37,69 @@ class App extends React.Component {
       this.setState({
         employees: results[0],
         offices: results[1],
-        airports: results[2]
-      })
-    );
+        airports: results[2],
+      }))
   }
 
-  getAirportNameByCode = airportCode => {
+  getAirportObjectByCode = airportCode => {
     const { airports } = this.state;
     const airportFound = airports.find(airport => airport.code === airportCode);
-    const { name } = airportFound;
-    return name;
+    // console.log(airportFound);
+    return airportFound || {};
   };
 
-  // getAirportName() {
-  //   const { employees, airports } = this.state;
-  //   const newEmployees = employees.map(employee => {
-  //     const airport = airports.find(
-  //       airport => airport.code === employee.airportCode
-  //     );
-  //     return { ...employee, airport: airport.name };
-  //   });
-  //   this.setState(
-  //     {
-  //       participants: newEmployees
-  //     },
-  //     () => console.log(this.state)
-  //   );
-  // }
+  getPrices() {
+    const { employees, offices, dateIn, dateOut } = this.state; // Cambiar por participants
+    const url = "https://adalab-teamwire.herokuapp.com";
+    const allAirports = employees.map(employee => employee.airportCode);
+    const airportsFrom = [...new Set(allAirports)]; // para evitar aeropuertos repetidos
+    const allResults = [];
+    for (let office of offices) {
+      const fromOffice = office.airportCode;
+      const promisesOffice = [];
+      for (let airport of airportsFrom) {
+        promisesOffice.push(getDataFromServer(`${url}/flights/price/from/${airport}/to/${fromOffice}/${dateOut}/${dateIn}`)
+        );
+      }
+      allResults.push(Promise.all(promisesOffice)); //Promise.all
+    }
+    Promise.all(allResults)
+      .then(data => this.sortedList(data))
+  }
+  sortedList(data) {
+    // { }
+    const { employees } = this.state;
+    const rawArray = []
+    for (let resultsByAirportTo of data) {
+      const participantsResume = []
+      const airportTo = resultsByAirportTo[0].airportTo.code;
+      let totalToAirport = 0;
+      for (let singleResultAirportFromAirpotTo of resultsByAirportTo) {
+        const numParticipatsFrom = employees.filter(employee => employee.airportCode === singleResultAirportFromAirpotTo.airportFrom.code).length
+        const price = singleResultAirportFromAirpotTo.airportFrom.code !== singleResultAirportFromAirpotTo.airportTo.code ? singleResultAirportFromAirpotTo.avgPrice : 0;
+        const totalByAirportFrom = numParticipatsFrom * price;
+        totalToAirport += totalByAirportFrom;
+        const participantsFrom = {
+          count: numParticipatsFrom,
+          singlePrice: price,
+          airportFrom: singleResultAirportFromAirpotTo.airportFrom.code
+        }
+        participantsResume.push(participantsFrom)
+      }
+      rawArray.push({ totalToAirport, airportTo, participantsResume })
+    }
+    const sortedArray = rawArray.sort((airportToPrev, airportToNext) => airportToPrev.totalToAirport < airportToNext.totalToAirport)
+    //return sortedArray;
+    this.setState({
+      composeList: sortedArray
+    }, () => console.log(sortedArray))
+  }
+  getAirportPropByCode = airportCode => propname => {
+    debugger;
+    const airport = this.getAirportObjectByCode(airportCode);
+    return airport[propname] || null;
+  };
 
-  // getAirportOffice() {
-  //   const { offices, airports } = this.state;
-  //   const newOffices = offices.map(office => {
-  //     const airport = airports.find(
-  //       airport => airport.code === office.airportCode
-  //     );
-  //     return { ...office, airport: airport.name };
-  //   });
-  //   this.setState(
-  //     {
-  //       selectedOffices: newOffices
-  //     },
-  //     () => console.log(this.state)
-  //   );
-  // }
-
-  // getPrices2() {
-  //   const { employees, offices, airports } = this.state; // Cambiar por participants
-  //   const allAirports = employees.map(employee => employee.airportCode);
-  //   const airportsFrom = [...new set(allAirports)]; // para evitar aeropuertos repetidos
-  //   const allPromises = [];
-  //   for (let office of offices) {
-  //     const allPromises = [];
-  //     for (let office of offices) {
-  //       const promisesOffice = [];
-  //       for (let airport of airports) {
-  //         promisesOffice.push(fetch);
-  //       }
-  //     }
-  //   }
-  // }
-
-  // getPrices() {
-  //   const { airports, offices } = this.state;
-  //   for (let airport of airports) {
-  //     const url = "https://adalab-teamwire.herokuapp.com";
-  //     for (let office of offices) {
-  //       let airportTo = office.airportCode;
-  //       const airportFrom = airport.code;
-  //       const pricesURL = `${url}/flights/price/from/${airportFrom}/to/${airportTo}/${this.state.dateOut}/${this.state.dateIn}`;
-  //       if (airportTo !== airportFrom) {
-  //         return fetch(pricesURL);
-  //       }
-  //       console.log(
-  //         "airportTO : " + airportTo,
-  //         "airportFrom: " + airportFrom + "pricesURL : " + pricesURL
-  //       );
-  //     }
-
-  //return pricePromises = {fecth()}
-  // }
-
-  //const pricePromises = { fecth() }
-  // }
 
   handleDateIn(ev) {
     console.log(ev.target.value);
@@ -139,7 +117,6 @@ class App extends React.Component {
   }
 
   render() {
-    // this.getAirportOffice();
     const { offices, employees } = this.state;
     return (
       <React.Fragment>
@@ -152,15 +129,16 @@ class App extends React.Component {
               <Home
                 handleDateIn={this.handleDateIn}
                 handleDateOut={this.handleDateOut}
-                getAirportNameByCode={this.getAirportNameByCode}
+                getAirportPropByCode={this.getAirportPropByCode}
                 offices={offices}
                 employees={employees}
+                getPrices={this.getPrices}
               />
             )}
           />
-          <Route path="/results" component={Results} />
+          <Route path="/results" render={props => <Results composeList={this.state.composeList} getAirportPropByCode={this.getAirportPropByCode} />} />
         </Switch>
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }

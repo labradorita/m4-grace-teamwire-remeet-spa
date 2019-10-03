@@ -4,8 +4,8 @@ import "../stylesheets/layouts/Return.scss";
 
 const Return = () => {
   return (
-    <Link to="/">
-      <button className="return-button">NEW SEARCH</button>
+    <Link to="/" className="return-button">
+      NEW SEARCH
     </Link>
   );
 };
