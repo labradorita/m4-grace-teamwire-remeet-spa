@@ -6,6 +6,10 @@
   overflow-x: hidden;
   width: 476px;
   background-color: $white;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
 
   &__title {
     margin: 20px 0 15px 40px;
@@ -14,11 +18,6 @@
     font-size: 20px;
     font-weight: 500;
     letter-spacing: 0.25px;
-  }
-  &__container {
-    height: 250px;
-    overflow-y: scroll;
-    overflow-x: hidden;
   }
   &__list {
     width: 400px;
@@ -47,6 +46,7 @@
   }
   &__info {
     padding-left: 10px;
+    overflow: hidden;
   }
   &__info-name {
     margin-top: 5px;
@@ -59,74 +59,10 @@
     margin: 0px;
     line-height: 1.43;
     font-size: 14px;
-    opacity: 0.6;
+    color: rgba(0, 0, 0, 0.6);
   }
 }
 
-// @media all and (min-width: 1280px) {
-//   .search-participants {
-//     overflow-y: scroll;
-//     overflow-x: hidden;
-//     width: 400px;
-//     height: 300px;
-//     background-color: $white;
-
-//     &__title {
-//       margin: 20px 0 15px 0;
-//       text-transform: capitalize;
-//       color: $cobalt-blue;
-//       font-size: 20px;
-//       font-weight: 500;
-//       letter-spacing: 0.25px;
-//     }
-//     &__container {
-//       // overflow-y: scroll;
-//       // overflow-x: hidden;
-//     }
-//     &__list {
-//       // overflow-y: scroll;
-//       // overflow-x: hidden;
-//       width: 400px;
-//     }
-//     &__data {
-//       display: flex;
-//       flex-direction: row;
-//     }
-
-//     &__participant {
-//       height: 67px;
-//       margin-left: 40px;
-//       margin-right: 0px;
-//       display: flex;
-//       justify-content: space-between;
-//       align-items: center;
-//       padding-bottom: 10px;
-//       border-bottom: 1px solid lightgrey;
-//       letter-spacing: 0.15px;
-//     }
-//     &__image {
-//       width: 40px;
-//       height: 40px;
-//       border-radius: 50%;
-//     }
-//     &__info {
-//       padding-left: 10px;
-//     }
-//     &__info-name {
-//       margin: 0px;
-//       line-height: 1.5;
-//       font-size: 16px;
-//       font-family: $font;
-//       letter-spacing: 0.15px;
-//     }
-//     &__city {
-//       margin: 0px;
-//       line-height: 1.43;
-//       font-size: 14px;
-//       opacity: 0.6;
-//     }
-//   }
-// }
 /* Customize the label (the container) */
 .container {
   display: block;
