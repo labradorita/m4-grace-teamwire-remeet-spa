@@ -11,9 +11,13 @@ This is developed by Amanda Padilla, Samantha Cancino, Raquel Mendiz, Sara Mart√
 # How to use
 
 This project was bootstrapped with Create React App.
+
 You have to run npm start to use the app in the development mode.
+
 Open https://localhost:3000 to view it in the browser. The page will reload if you make edits.
+
 You can learn more in the Create React App documentation.
+
 To learn React, check out the React documentation.
 
 # How its look
