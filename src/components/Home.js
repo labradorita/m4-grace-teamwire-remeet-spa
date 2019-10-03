@@ -11,6 +11,7 @@ const Home = ({
   handleDateOut,
   getPrices
 }) => (
+<<<<<<< HEAD
     <div className="App">
       <React.Fragment>
         <SearchCard
@@ -26,5 +27,24 @@ const Home = ({
       </React.Fragment>
     </div>
   );
+=======
+
+  <div className="App">
+    <React.Fragment>
+      <SearchCard
+        offices={offices}
+        employees={employees}
+        getAirportPropByCode={getAirportPropByCode}
+        handleDateOut={handleDateOut}
+        handleDateIn={handleDateIn}
+      />
+      <div className="home">
+        <div className="home__title">remote meeting calculator</div>
+        <img src={homeImage} alt="map illustration" className="home__image" />
+      </div>
+    </React.Fragment>
+  </div>
+);
+>>>>>>> dev
 
 export default Home;

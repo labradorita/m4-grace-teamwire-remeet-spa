@@ -26,7 +26,7 @@ input[type="date"]:valid::before {
 
 .search-date {
   width: 400px;
-  margin-top: 0px;
+  margin-bottom: 20px;
 
   &__title {
     color: $cobalt-blue;
@@ -53,39 +53,5 @@ input[type="date"]:valid::before {
   }
   &__item {
     border: none;
-  }
-}
-
-@media all and (min-width: 1280px) {
-  .search-date {
-    width: 400px;
-    margin-top: 0px;
-
-    &__title {
-      color: $cobalt-blue;
-      font-size: 20px;
-      font-weight: 500;
-      padding-bottom: 14px;
-    }
-    &__inputs-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    &__wrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 190px;
-      padding: 15px;
-      border: solid 1px rgba(0, 0, 0, 0.32);
-      border-radius: 5px;
-    }
-    &__iclock {
-      color: rgba(0, 0, 0, 0.32);
-    }
-    &__item {
-      border: none;
-    }
   }
 }
