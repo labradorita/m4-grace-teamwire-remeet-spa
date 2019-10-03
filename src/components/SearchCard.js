@@ -14,7 +14,8 @@ const SearchCard = props => {
     getAirportPropByCode,
     getAirportObjectByCode,
     airport,
-    getSelectedEmployees
+    selectedEmployees,
+    onSelect
   } = props;
 
   return (
@@ -24,7 +25,8 @@ const SearchCard = props => {
         <SearchParticipants
           employees={employees}
           getAirportPropByCode={getAirportPropByCode}
-          getSelectedEmployees={getSelectedEmployees}
+          selectedEmployees={selectedEmployees}
+          onSelect={onSelect}
         />
         <SearchLocation
           offices={offices}

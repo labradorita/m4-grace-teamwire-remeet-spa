@@ -6,7 +6,6 @@ import Header from "./Header";
 import Home from "./Home";
 import Results from "./Results";
 import { employeesURL, officesURL, airportsURL } from "../services/config";
-import { get } from "http";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +22,8 @@ class App extends React.Component {
     this.handleDateOut = this.handleDateOut.bind(this);
     this.getAirportPropByCode = this.getAirportPropByCode.bind(this);
     this.getAirportObjectByCode = this.getAirportObjectByCode.bind(this);
-    this.getSelectedEmployees = this.getSelectedEmployees.bind(this);
+    // this.getSelectedEmployees = this.getSelectedEmployees.bind(this);
+    // this.onSelect = this.onSelect.bind(this); con => no hace falta bindear
   }
 
   componentDidMount() {
@@ -35,6 +35,7 @@ class App extends React.Component {
     Promise.all(apiPromises).then(results =>
       this.setState({
         employees: results[0],
+        selectedEmployees: results[0].map(e => e.id),
         offices: results[1],
         airports: results[2]
       })
@@ -53,21 +54,17 @@ class App extends React.Component {
     return airport[propname] || null;
   };
 
-  getSelectedEmployees() {
-    const { employees } = this.state;
-    const selecEmployees = employees.map(
-      employee => {
-        return employee.id;
-      }
-      //() => console.log(this.selectedEmployees)
-    );
-    this.setState(
-      {
-        selectedEmployees: selecEmployees
-      },
-      () => console.log(this.state.selectedEmployees)
-    );
-  }
+  onSelect = ev => {
+    const employeeId = ev.target.value;
+
+    let { selectedEmployees } = this.state;
+    if (selectedEmployees.includes(employeeId)) {
+      selectedEmployees = selectedEmployees.filter(id => id === employeeId);
+    } else {
+      selectedEmployees = [...selectedEmployees, employeeId];
+    }
+    console.log(selectedEmployees);
+  };
 
   handleDateIn(ev) {
     console.log(ev.target.value);
@@ -86,7 +83,7 @@ class App extends React.Component {
 
   render() {
     // this.getAirportOffice();
-    const { offices, employees, airport } = this.state;
+    const { offices, employees, airport, selectedEmployees } = this.state;
     return (
       <React.Fragment>
         <Header />
@@ -103,7 +100,8 @@ class App extends React.Component {
                 offices={offices}
                 employees={employees}
                 airport={airport}
-                getSelectedEmployees={this.getSelectedEmployees}
+                selectedEmployees={selectedEmployees}
+                onSelect={this.onSelect}
               />
             )}
           />
