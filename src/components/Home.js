@@ -6,7 +6,7 @@ import "../stylesheets/layouts/Home.scss";
 const Home = ({
   offices,
   employees,
-  getAirportNameByCode,
+  getAirportPropByCode,
   handleDateIn,
   handleDateOut,
   getPrices
