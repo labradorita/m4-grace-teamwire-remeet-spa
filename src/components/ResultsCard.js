@@ -8,14 +8,11 @@ const ResultsCard = ({ composeList }) => {
   return (
     <React.Fragment>
       <div className="results-card">
-        {composeList.map((city, index) => {
-          if (index === 0) {
-            return (<ResultsMain cheaperCity={city} />)
-          }
-        })}
         <ul className="results-list">
           {composeList.map((city, index) => {
-            if (index > 0) {
+            if (index === 0) {
+              return (<ResultsMain cheaperCity={city} />)
+            } else {
               return (
                 <ResultsList city={city} />
               )

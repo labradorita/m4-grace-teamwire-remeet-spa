@@ -13,7 +13,8 @@ const SearchCard = props => {
     handleDateOut,
     getAirportPropByCode,
     getAirportObjectByCode,
-    airport
+    airport,
+    getPrices,
   } = props;
 
   return (

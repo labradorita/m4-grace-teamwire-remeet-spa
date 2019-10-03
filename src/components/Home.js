@@ -6,12 +6,12 @@ import "../stylesheets/layouts/Home.scss";
 const Home = ({
   offices,
   employees,
+  getAirportNameByCode,
   getAirportPropByCode,
   handleDateIn,
   handleDateOut,
   getPrices
 }) => (
-<<<<<<< HEAD
     <div className="App">
       <React.Fragment>
         <SearchCard
@@ -21,30 +21,12 @@ const Home = ({
           handleDateOut={handleDateOut}
           handleDateIn={handleDateIn}
           getPrices={getPrices}
+          getAirportPropByCode={getAirportPropByCode}
         />
         <div className="home__title">remote meeting calculator</div>
         <img src={homeImage} alt="map illustration" className="home__image" />
       </React.Fragment>
     </div>
   );
-=======
-
-  <div className="App">
-    <React.Fragment>
-      <SearchCard
-        offices={offices}
-        employees={employees}
-        getAirportPropByCode={getAirportPropByCode}
-        handleDateOut={handleDateOut}
-        handleDateIn={handleDateIn}
-      />
-      <div className="home">
-        <div className="home__title">remote meeting calculator</div>
-        <img src={homeImage} alt="map illustration" className="home__image" />
-      </div>
-    </React.Fragment>
-  </div>
-);
->>>>>>> dev
 
 export default Home;
