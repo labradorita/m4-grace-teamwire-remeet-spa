@@ -2,8 +2,10 @@
 @import "../index";
 
 .return-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 400px;
-  height: 60px;
   border: 1px solid rgb(194, 194, 194);
   border-radius: 5px;
   background-color: $white;
@@ -14,4 +16,5 @@
   color: $cobalt-blue;
   text-align: center;
   margin-top: 15px;
+  padding: 20px;
 }
