@@ -14,7 +14,7 @@ const SearchCard = props => {
     getAirportPropByCode,
     selectedEmployees,
     onSelect,
-    getPrices
+    getPrices,
   } = props;
 
   return (

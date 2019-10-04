@@ -3,16 +3,15 @@ import ResultsCard from "./ResultsCard";
 import "../stylesheets/layouts/Results.scss";
 import resultCity from "../images/result-city.png";
 import resultBubble from "../images/bubble.png";
-
+import Loader from './Loader';
 import ResultsMessage from "./ResultsMessage";
 
 const Results = (props) => {
   if (props.composeList.length) {
-    const { composeList, getAirportPropByCode } = props;
-    console.log(composeList[0])
+    const { composeList, getAirportPropByCode, clearState } = props;
     return (< React.Fragment >
       <div className="results">
-        <ResultsCard composeList={composeList} getAirportPropByCode={getAirportPropByCode} />
+        <ResultsCard composeList={composeList} getAirportPropByCode={getAirportPropByCode} clearState={clearState} />
         <ResultsMessage element={composeList[0]} getAirportPropByCode={getAirportPropByCode} />
         <img
           src={resultCity}
@@ -29,10 +28,8 @@ const Results = (props) => {
       </div>
     </React.Fragment >)
   } else {
-    return (<div class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
-    </div>)
+    return (
+      <Loader />)
   }
 }
 

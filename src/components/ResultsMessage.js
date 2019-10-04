@@ -5,7 +5,6 @@ import madridCircle from "../images/madrid-circle.jpg";
 const ResultsMessage = props => {
   if (props.element) {
     const { element, getAirportPropByCode } = props;
-    console.log(element);
     return (
       <div className="results-message">
         <h2 className="results-message__message">We find the best Remeet in</h2>

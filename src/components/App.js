@@ -17,7 +17,7 @@ class App extends React.Component {
       dateIn: "2019-10-18", // AAAA-MM-DD
       dateOut: "2019-10-23", // AAAA-MM-DD
       selectedEmployees: [],
-      composeList: []
+      composeList: [],
     };
     this.handleDateIn = this.handleDateIn.bind(this);
     this.handleDateOut = this.handleDateOut.bind(this);
@@ -25,6 +25,7 @@ class App extends React.Component {
     this.sortedList = this.sortedList.bind(this);
     this.getAirportPropByCode = this.getAirportPropByCode.bind(this);
     this.getAirportObjectByCode = this.getAirportObjectByCode.bind(this);
+    this.clearState = this.clearState.bind(this)
     // this.getSelectedEmployees = this.getSelectedEmployees.bind(this);
     // this.onSelect = this.onSelect.bind(this); con => no hace falta bindear
   }
@@ -51,7 +52,9 @@ class App extends React.Component {
     return airportFound || {};
   };
 
+
   getPrices() {
+    const allResults = [];
     const {
       employees,
       offices,
@@ -65,7 +68,6 @@ class App extends React.Component {
       .map(employee => employee.airportCode);
     const airportsFrom = [...new Set(allAirports)]; // para evitar aeropuertos repetidos
     const fnLoading = () => new Promise(resolve => { setTimeout(() => { resolve() }, 5000) })
-    const allResults = [];
     for (let office of offices) {
       const fromOffice = office.airportCode;
       const promisesOffice = [];
@@ -82,7 +84,6 @@ class App extends React.Component {
     Promise.all(allResults).then(data => this.sortedList(data.filter(Boolean)));
   }
   sortedList(data) {
-    // { }
     const { employees, selectedEmployees } = this.state;
     const filteredEmployees = employees.filter(employee =>
       selectedEmployees.includes(employee.id)
@@ -123,7 +124,6 @@ class App extends React.Component {
       {
         composeList: sortedArray
       },
-      () => console.log("sorted array", sortedArray)
     );
   }
   getAirportPropByCode = airportCode => propname => {
@@ -144,27 +144,30 @@ class App extends React.Component {
     this.setState({
       selectedEmployees: selectedEmployeesInc
     });
-    console.log(selectedEmployeesInc);
   };
 
   handleDateIn(ev) {
-    console.log(ev.target.value);
     const dateIn = ev.target.value;
     this.setState({
       dateIn: dateIn
     });
   }
   handleDateOut(ev) {
-    console.log(ev.target.value);
     const dateOut = ev.target.value;
     this.setState({
       dateOut: dateOut
     });
   }
 
+  clearState() {
+    this.setState({
+      composeList: []
+    })
+
+  }
+
   render() {
-    // this.getAirportOffice();
-    const { offices, employees, airport, selectedEmployees } = this.state;
+    const { offices, employees, selectedEmployees } = this.state;
     return (
       <React.Fragment>
         <Header />
@@ -188,9 +191,11 @@ class App extends React.Component {
           <Route
             path="/results"
             render={props => (
-              <Results
+              < Results
                 composeList={this.state.composeList}
                 getAirportPropByCode={this.getAirportPropByCode}
+                clearState={this.clearState}
+
               />
             )}
           />

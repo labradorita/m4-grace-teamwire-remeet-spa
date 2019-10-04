@@ -4,7 +4,7 @@ import Return from "./Return";
 import ResultsList from "./ResultsList";
 import "../stylesheets/layouts/ResultsCard.scss";
 
-const ResultsCard = ({ composeList, getAirportPropByCode }) => {
+const ResultsCard = ({ composeList, getAirportPropByCode, clearState }) => {
   return (
     <React.Fragment>
       <div className="results-card">
@@ -28,7 +28,7 @@ const ResultsCard = ({ composeList, getAirportPropByCode }) => {
             }
           })}
         </ul>
-        <Return />
+        <Return clearState={clearState} />
       </div>
     </React.Fragment>
   );
