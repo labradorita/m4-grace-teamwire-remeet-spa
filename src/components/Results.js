@@ -5,6 +5,7 @@ import resultCity from "../images/result-city.png";
 import resultBubble from "../images/bubble.png";
 import Loader from './Loader';
 import ResultsMessage from "./ResultsMessage";
+import Return from "./Return";
 
 const Results = (props) => {
   if (props.composeList.length) {
@@ -28,8 +29,13 @@ const Results = (props) => {
       </div>
     </React.Fragment >)
   } else {
+    const { clearState } = props
     return (
-      <Loader />)
+      <section className="results__section">
+        <Loader />
+        {/* <Return clearState={clearState} /> */}
+      </section>)
+
   }
 }
 

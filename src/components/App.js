@@ -167,10 +167,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { offices, employees, selectedEmployees } = this.state;
+    const { offices, employees, selectedEmployees, clearState } = this.state;
     return (
       <React.Fragment>
-        <Header />
+        <Header clearState={clearState} />
         <Switch>
           <Route
             exact

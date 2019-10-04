@@ -21,6 +21,12 @@
     bottom: 0px;
     z-index: -2;
   }
+  &__section{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .spinner {
   width: 40px;

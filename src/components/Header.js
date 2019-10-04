@@ -3,10 +3,10 @@ import "../stylesheets/layouts/Header.scss";
 import Logo from "../images/Logo.png";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ clearState }) => {
   return (
     <header className="header">
-      <div className="header__logo">
+      <div className="header__logo" /* onClick={clearState} */>
         <Link to="/">
           <img src={Logo} alt="logo-Remeet" className="header__img" />
         </Link>
